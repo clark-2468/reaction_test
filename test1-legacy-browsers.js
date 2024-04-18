@@ -56,9 +56,6 @@ flowScheduler.add(red0_5RoutineEnd());
 flowScheduler.add(red0_625RoutineBegin());
 flowScheduler.add(red0_625RoutineEachFrame());
 flowScheduler.add(red0_625RoutineEnd());
-flowScheduler.add(yellow0_5RoutineBegin());
-flowScheduler.add(yellow0_5RoutineEachFrame());
-flowScheduler.add(yellow0_5RoutineEnd());
 flowScheduler.add(blue0_5RoutineBegin());
 flowScheduler.add(blue0_5RoutineEachFrame());
 flowScheduler.add(blue0_5RoutineEnd());
@@ -141,8 +138,6 @@ var polygon_red_0_5;
 var red0_625Clock;
 var polygon_red_0_625;
 var res_red_0_625;
-var yellow0_5Clock;
-var polygon_yellow_0_5;
 var blue0_5Clock;
 var polygon_blue_0_5;
 var res_blue_0_5;
@@ -259,20 +254,6 @@ async function experimentInit() {
   });
   
   res_red_0_625 = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
-  
-  // Initialize components for Routine "yellow0_5"
-  yellow0_5Clock = new util.Clock();
-  polygon_yellow_0_5 = new visual.Polygon({
-    win: psychoJS.window, name: 'polygon_yellow_0_5', 
-    edges: 100, size:[0.5, 0.5],
-    ori: 0.0, pos: [0, 0],
-    anchor: 'center',
-    lineWidth: 1.0, 
-    colorSpace: 'rgb',
-    lineColor: new util.Color('white'),
-    fillColor: new util.Color([0.0, 0.0, (- 1.0)]),
-    opacity: undefined, depth: 0, interpolate: true,
-  });
   
   // Initialize components for Routine "blue0_5"
   blue0_5Clock = new util.Clock();
@@ -1162,96 +1143,6 @@ function red0_625RoutineEnd(snapshot) {
     
     res_red_0_625.stop();
     // the Routine "red0_625" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset();
-    
-    // Routines running outside a loop should always advance the datafile row
-    if (currentLoop === psychoJS.experiment) {
-      psychoJS.experiment.nextEntry(snapshot);
-    }
-    return Scheduler.Event.NEXT;
-  }
-}
-
-
-var yellow0_5Components;
-function yellow0_5RoutineBegin(snapshot) {
-  return async function () {
-    TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
-    
-    //--- Prepare to start Routine 'yellow0_5' ---
-    t = 0;
-    yellow0_5Clock.reset(); // clock
-    frameN = -1;
-    continueRoutine = true; // until we're told otherwise
-    // update component parameters for each repeat
-    psychoJS.experiment.addData('yellow0_5.started', globalClock.getTime());
-    // keep track of which components have finished
-    yellow0_5Components = [];
-    yellow0_5Components.push(polygon_yellow_0_5);
-    
-    yellow0_5Components.forEach( function(thisComponent) {
-      if ('status' in thisComponent)
-        thisComponent.status = PsychoJS.Status.NOT_STARTED;
-       });
-    return Scheduler.Event.NEXT;
-  }
-}
-
-
-function yellow0_5RoutineEachFrame() {
-  return async function () {
-    //--- Loop for each frame of Routine 'yellow0_5' ---
-    // get current time
-    t = yellow0_5Clock.getTime();
-    frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
-    // update/draw components on each frame
-    
-    // *polygon_yellow_0_5* updates
-    if (t >= 2 && polygon_yellow_0_5.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      polygon_yellow_0_5.tStart = t;  // (not accounting for frame time here)
-      polygon_yellow_0_5.frameNStart = frameN;  // exact frame index
-      
-      polygon_yellow_0_5.setAutoDraw(true);
-    }
-    
-    // check for quit (typically the Esc key)
-    if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
-      return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
-    }
-    
-    // check if the Routine should terminate
-    if (!continueRoutine) {  // a component has requested a forced-end of Routine
-      return Scheduler.Event.NEXT;
-    }
-    
-    continueRoutine = false;  // reverts to True if at least one component still running
-    yellow0_5Components.forEach( function(thisComponent) {
-      if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
-        continueRoutine = true;
-      }
-    });
-    
-    // refresh the screen if continuing
-    if (continueRoutine) {
-      return Scheduler.Event.FLIP_REPEAT;
-    } else {
-      return Scheduler.Event.NEXT;
-    }
-  };
-}
-
-
-function yellow0_5RoutineEnd(snapshot) {
-  return async function () {
-    //--- Ending Routine 'yellow0_5' ---
-    yellow0_5Components.forEach( function(thisComponent) {
-      if (typeof thisComponent.setAutoDraw === 'function') {
-        thisComponent.setAutoDraw(false);
-      }
-    });
-    psychoJS.experiment.addData('yellow0_5.stopped', globalClock.getTime());
-    // the Routine "yellow0_5" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
     // Routines running outside a loop should always advance the datafile row
