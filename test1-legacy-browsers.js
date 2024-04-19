@@ -101,6 +101,15 @@ flowScheduler.add(green0_5RoutineEnd());
 flowScheduler.add(green0_625RoutineBegin());
 flowScheduler.add(green0_625RoutineEachFrame());
 flowScheduler.add(green0_625RoutineEnd());
+flowScheduler.add(green0_75RoutineBegin());
+flowScheduler.add(green0_75RoutineEachFrame());
+flowScheduler.add(green0_75RoutineEnd());
+flowScheduler.add(green0_875RoutineBegin());
+flowScheduler.add(green0_875RoutineEachFrame());
+flowScheduler.add(green0_875RoutineEnd());
+flowScheduler.add(green1RoutineBegin());
+flowScheduler.add(green1RoutineEachFrame());
+flowScheduler.add(green1RoutineEnd());
 flowScheduler.add(purple0_5RoutineBegin());
 flowScheduler.add(purple0_5RoutineEachFrame());
 flowScheduler.add(purple0_5RoutineEnd());
@@ -216,6 +225,15 @@ var res_green_0_5;
 var green0_625Clock;
 var polygon_green_0_625;
 var res_green_0_625;
+var green0_75Clock;
+var polygon_green_0_75;
+var res_green_0_75;
+var green0_875Clock;
+var polygon_green_0_875;
+var res_green_0_875;
+var green1Clock;
+var polygon_green_1;
+var res_green_1;
 var purple0_5Clock;
 var polygon_purple_0_5;
 var res_purple_0_5;
@@ -560,6 +578,54 @@ async function experimentInit() {
   });
   
   res_green_0_625 = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
+  
+  // Initialize components for Routine "green0_75"
+  green0_75Clock = new util.Clock();
+  polygon_green_0_75 = new visual.Polygon({
+    win: psychoJS.window, name: 'polygon_green_0_75', 
+    edges: 100, size:[0.5, 0.5],
+    ori: 0.0, pos: [0, 0],
+    anchor: 'center',
+    lineWidth: 1.0, 
+    colorSpace: 'rgb',
+    lineColor: new util.Color('white'),
+    fillColor: new util.Color([(- 0.5), 0.5, (- 1.0)]),
+    opacity: undefined, depth: 0, interpolate: true,
+  });
+  
+  res_green_0_75 = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
+  
+  // Initialize components for Routine "green0_875"
+  green0_875Clock = new util.Clock();
+  polygon_green_0_875 = new visual.Polygon({
+    win: psychoJS.window, name: 'polygon_green_0_875', 
+    edges: 100, size:[0.5, 0.5],
+    ori: 0.0, pos: [0, 0],
+    anchor: 'center',
+    lineWidth: 1.0, 
+    colorSpace: 'rgb',
+    lineColor: new util.Color('white'),
+    fillColor: new util.Color([(- 0.4167), 0.75, (- 1.0)]),
+    opacity: undefined, depth: 0, interpolate: true,
+  });
+  
+  res_green_0_875 = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
+  
+  // Initialize components for Routine "green1"
+  green1Clock = new util.Clock();
+  polygon_green_1 = new visual.Polygon({
+    win: psychoJS.window, name: 'polygon_green_1', 
+    edges: 100, size:[0.5, 0.5],
+    ori: 0.0, pos: [0, 0],
+    anchor: 'center',
+    lineWidth: 1.0, 
+    colorSpace: 'rgb',
+    lineColor: new util.Color('white'),
+    fillColor: new util.Color([(- 0.3333), 1.0, (- 1.0)]),
+    opacity: undefined, depth: 0, interpolate: true,
+  });
+  
+  res_green_1 = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
   // Initialize components for Routine "purple0_5"
   purple0_5Clock = new util.Clock();
@@ -3365,6 +3431,402 @@ function green0_625RoutineEnd(snapshot) {
     
     res_green_0_625.stop();
     // the Routine "green0_625" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset();
+    
+    // Routines running outside a loop should always advance the datafile row
+    if (currentLoop === psychoJS.experiment) {
+      psychoJS.experiment.nextEntry(snapshot);
+    }
+    return Scheduler.Event.NEXT;
+  }
+}
+
+
+var _res_green_0_75_allKeys;
+var green0_75Components;
+function green0_75RoutineBegin(snapshot) {
+  return async function () {
+    TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
+    
+    //--- Prepare to start Routine 'green0_75' ---
+    t = 0;
+    green0_75Clock.reset(); // clock
+    frameN = -1;
+    continueRoutine = true; // until we're told otherwise
+    // update component parameters for each repeat
+    psychoJS.experiment.addData('green0_75.started', globalClock.getTime());
+    res_green_0_75.keys = undefined;
+    res_green_0_75.rt = undefined;
+    _res_green_0_75_allKeys = [];
+    // keep track of which components have finished
+    green0_75Components = [];
+    green0_75Components.push(polygon_green_0_75);
+    green0_75Components.push(res_green_0_75);
+    
+    green0_75Components.forEach( function(thisComponent) {
+      if ('status' in thisComponent)
+        thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
+    return Scheduler.Event.NEXT;
+  }
+}
+
+
+function green0_75RoutineEachFrame() {
+  return async function () {
+    //--- Loop for each frame of Routine 'green0_75' ---
+    // get current time
+    t = green0_75Clock.getTime();
+    frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
+    // update/draw components on each frame
+    
+    // *polygon_green_0_75* updates
+    if (t >= 2 && polygon_green_0_75.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      polygon_green_0_75.tStart = t;  // (not accounting for frame time here)
+      polygon_green_0_75.frameNStart = frameN;  // exact frame index
+      
+      polygon_green_0_75.setAutoDraw(true);
+    }
+    
+    
+    // *res_green_0_75* updates
+    if (t >= 2 && res_green_0_75.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      res_green_0_75.tStart = t;  // (not accounting for frame time here)
+      res_green_0_75.frameNStart = frameN;  // exact frame index
+      
+      // keyboard checking is just starting
+      psychoJS.window.callOnFlip(function() { res_green_0_75.clock.reset(); });  // t=0 on next screen flip
+      psychoJS.window.callOnFlip(function() { res_green_0_75.start(); }); // start on screen flip
+      psychoJS.window.callOnFlip(function() { res_green_0_75.clearEvents(); });
+    }
+    
+    if (res_green_0_75.status === PsychoJS.Status.STARTED) {
+      let theseKeys = res_green_0_75.getKeys({keyList: ['y', 'n', 'left', 'right', 'space'], waitRelease: false});
+      _res_green_0_75_allKeys = _res_green_0_75_allKeys.concat(theseKeys);
+      if (_res_green_0_75_allKeys.length > 0) {
+        res_green_0_75.keys = _res_green_0_75_allKeys[_res_green_0_75_allKeys.length - 1].name;  // just the last key pressed
+        res_green_0_75.rt = _res_green_0_75_allKeys[_res_green_0_75_allKeys.length - 1].rt;
+        res_green_0_75.duration = _res_green_0_75_allKeys[_res_green_0_75_allKeys.length - 1].duration;
+        // a response ends the routine
+        continueRoutine = false;
+      }
+    }
+    
+    // check for quit (typically the Esc key)
+    if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
+      return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
+    }
+    
+    // check if the Routine should terminate
+    if (!continueRoutine) {  // a component has requested a forced-end of Routine
+      return Scheduler.Event.NEXT;
+    }
+    
+    continueRoutine = false;  // reverts to True if at least one component still running
+    green0_75Components.forEach( function(thisComponent) {
+      if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
+        continueRoutine = true;
+      }
+    });
+    
+    // refresh the screen if continuing
+    if (continueRoutine) {
+      return Scheduler.Event.FLIP_REPEAT;
+    } else {
+      return Scheduler.Event.NEXT;
+    }
+  };
+}
+
+
+function green0_75RoutineEnd(snapshot) {
+  return async function () {
+    //--- Ending Routine 'green0_75' ---
+    green0_75Components.forEach( function(thisComponent) {
+      if (typeof thisComponent.setAutoDraw === 'function') {
+        thisComponent.setAutoDraw(false);
+      }
+    });
+    psychoJS.experiment.addData('green0_75.stopped', globalClock.getTime());
+    // update the trial handler
+    if (currentLoop instanceof MultiStairHandler) {
+      currentLoop.addResponse(res_green_0_75.corr, level);
+    }
+    psychoJS.experiment.addData('res_green_0_75.keys', res_green_0_75.keys);
+    if (typeof res_green_0_75.keys !== 'undefined') {  // we had a response
+        psychoJS.experiment.addData('res_green_0_75.rt', res_green_0_75.rt);
+        psychoJS.experiment.addData('res_green_0_75.duration', res_green_0_75.duration);
+        routineTimer.reset();
+        }
+    
+    res_green_0_75.stop();
+    // the Routine "green0_75" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset();
+    
+    // Routines running outside a loop should always advance the datafile row
+    if (currentLoop === psychoJS.experiment) {
+      psychoJS.experiment.nextEntry(snapshot);
+    }
+    return Scheduler.Event.NEXT;
+  }
+}
+
+
+var _res_green_0_875_allKeys;
+var green0_875Components;
+function green0_875RoutineBegin(snapshot) {
+  return async function () {
+    TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
+    
+    //--- Prepare to start Routine 'green0_875' ---
+    t = 0;
+    green0_875Clock.reset(); // clock
+    frameN = -1;
+    continueRoutine = true; // until we're told otherwise
+    // update component parameters for each repeat
+    psychoJS.experiment.addData('green0_875.started', globalClock.getTime());
+    res_green_0_875.keys = undefined;
+    res_green_0_875.rt = undefined;
+    _res_green_0_875_allKeys = [];
+    // keep track of which components have finished
+    green0_875Components = [];
+    green0_875Components.push(polygon_green_0_875);
+    green0_875Components.push(res_green_0_875);
+    
+    green0_875Components.forEach( function(thisComponent) {
+      if ('status' in thisComponent)
+        thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
+    return Scheduler.Event.NEXT;
+  }
+}
+
+
+function green0_875RoutineEachFrame() {
+  return async function () {
+    //--- Loop for each frame of Routine 'green0_875' ---
+    // get current time
+    t = green0_875Clock.getTime();
+    frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
+    // update/draw components on each frame
+    
+    // *polygon_green_0_875* updates
+    if (t >= 2 && polygon_green_0_875.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      polygon_green_0_875.tStart = t;  // (not accounting for frame time here)
+      polygon_green_0_875.frameNStart = frameN;  // exact frame index
+      
+      polygon_green_0_875.setAutoDraw(true);
+    }
+    
+    
+    // *res_green_0_875* updates
+    if (t >= 2 && res_green_0_875.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      res_green_0_875.tStart = t;  // (not accounting for frame time here)
+      res_green_0_875.frameNStart = frameN;  // exact frame index
+      
+      // keyboard checking is just starting
+      psychoJS.window.callOnFlip(function() { res_green_0_875.clock.reset(); });  // t=0 on next screen flip
+      psychoJS.window.callOnFlip(function() { res_green_0_875.start(); }); // start on screen flip
+      psychoJS.window.callOnFlip(function() { res_green_0_875.clearEvents(); });
+    }
+    
+    if (res_green_0_875.status === PsychoJS.Status.STARTED) {
+      let theseKeys = res_green_0_875.getKeys({keyList: ['y', 'n', 'left', 'right', 'space'], waitRelease: false});
+      _res_green_0_875_allKeys = _res_green_0_875_allKeys.concat(theseKeys);
+      if (_res_green_0_875_allKeys.length > 0) {
+        res_green_0_875.keys = _res_green_0_875_allKeys[_res_green_0_875_allKeys.length - 1].name;  // just the last key pressed
+        res_green_0_875.rt = _res_green_0_875_allKeys[_res_green_0_875_allKeys.length - 1].rt;
+        res_green_0_875.duration = _res_green_0_875_allKeys[_res_green_0_875_allKeys.length - 1].duration;
+        // a response ends the routine
+        continueRoutine = false;
+      }
+    }
+    
+    // check for quit (typically the Esc key)
+    if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
+      return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
+    }
+    
+    // check if the Routine should terminate
+    if (!continueRoutine) {  // a component has requested a forced-end of Routine
+      return Scheduler.Event.NEXT;
+    }
+    
+    continueRoutine = false;  // reverts to True if at least one component still running
+    green0_875Components.forEach( function(thisComponent) {
+      if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
+        continueRoutine = true;
+      }
+    });
+    
+    // refresh the screen if continuing
+    if (continueRoutine) {
+      return Scheduler.Event.FLIP_REPEAT;
+    } else {
+      return Scheduler.Event.NEXT;
+    }
+  };
+}
+
+
+function green0_875RoutineEnd(snapshot) {
+  return async function () {
+    //--- Ending Routine 'green0_875' ---
+    green0_875Components.forEach( function(thisComponent) {
+      if (typeof thisComponent.setAutoDraw === 'function') {
+        thisComponent.setAutoDraw(false);
+      }
+    });
+    psychoJS.experiment.addData('green0_875.stopped', globalClock.getTime());
+    // update the trial handler
+    if (currentLoop instanceof MultiStairHandler) {
+      currentLoop.addResponse(res_green_0_875.corr, level);
+    }
+    psychoJS.experiment.addData('res_green_0_875.keys', res_green_0_875.keys);
+    if (typeof res_green_0_875.keys !== 'undefined') {  // we had a response
+        psychoJS.experiment.addData('res_green_0_875.rt', res_green_0_875.rt);
+        psychoJS.experiment.addData('res_green_0_875.duration', res_green_0_875.duration);
+        routineTimer.reset();
+        }
+    
+    res_green_0_875.stop();
+    // the Routine "green0_875" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset();
+    
+    // Routines running outside a loop should always advance the datafile row
+    if (currentLoop === psychoJS.experiment) {
+      psychoJS.experiment.nextEntry(snapshot);
+    }
+    return Scheduler.Event.NEXT;
+  }
+}
+
+
+var _res_green_1_allKeys;
+var green1Components;
+function green1RoutineBegin(snapshot) {
+  return async function () {
+    TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
+    
+    //--- Prepare to start Routine 'green1' ---
+    t = 0;
+    green1Clock.reset(); // clock
+    frameN = -1;
+    continueRoutine = true; // until we're told otherwise
+    // update component parameters for each repeat
+    psychoJS.experiment.addData('green1.started', globalClock.getTime());
+    res_green_1.keys = undefined;
+    res_green_1.rt = undefined;
+    _res_green_1_allKeys = [];
+    // keep track of which components have finished
+    green1Components = [];
+    green1Components.push(polygon_green_1);
+    green1Components.push(res_green_1);
+    
+    green1Components.forEach( function(thisComponent) {
+      if ('status' in thisComponent)
+        thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
+    return Scheduler.Event.NEXT;
+  }
+}
+
+
+function green1RoutineEachFrame() {
+  return async function () {
+    //--- Loop for each frame of Routine 'green1' ---
+    // get current time
+    t = green1Clock.getTime();
+    frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
+    // update/draw components on each frame
+    
+    // *polygon_green_1* updates
+    if (t >= 2 && polygon_green_1.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      polygon_green_1.tStart = t;  // (not accounting for frame time here)
+      polygon_green_1.frameNStart = frameN;  // exact frame index
+      
+      polygon_green_1.setAutoDraw(true);
+    }
+    
+    
+    // *res_green_1* updates
+    if (t >= 2 && res_green_1.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      res_green_1.tStart = t;  // (not accounting for frame time here)
+      res_green_1.frameNStart = frameN;  // exact frame index
+      
+      // keyboard checking is just starting
+      psychoJS.window.callOnFlip(function() { res_green_1.clock.reset(); });  // t=0 on next screen flip
+      psychoJS.window.callOnFlip(function() { res_green_1.start(); }); // start on screen flip
+      psychoJS.window.callOnFlip(function() { res_green_1.clearEvents(); });
+    }
+    
+    if (res_green_1.status === PsychoJS.Status.STARTED) {
+      let theseKeys = res_green_1.getKeys({keyList: ['y', 'n', 'left', 'right', 'space'], waitRelease: false});
+      _res_green_1_allKeys = _res_green_1_allKeys.concat(theseKeys);
+      if (_res_green_1_allKeys.length > 0) {
+        res_green_1.keys = _res_green_1_allKeys[_res_green_1_allKeys.length - 1].name;  // just the last key pressed
+        res_green_1.rt = _res_green_1_allKeys[_res_green_1_allKeys.length - 1].rt;
+        res_green_1.duration = _res_green_1_allKeys[_res_green_1_allKeys.length - 1].duration;
+        // a response ends the routine
+        continueRoutine = false;
+      }
+    }
+    
+    // check for quit (typically the Esc key)
+    if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
+      return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
+    }
+    
+    // check if the Routine should terminate
+    if (!continueRoutine) {  // a component has requested a forced-end of Routine
+      return Scheduler.Event.NEXT;
+    }
+    
+    continueRoutine = false;  // reverts to True if at least one component still running
+    green1Components.forEach( function(thisComponent) {
+      if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
+        continueRoutine = true;
+      }
+    });
+    
+    // refresh the screen if continuing
+    if (continueRoutine) {
+      return Scheduler.Event.FLIP_REPEAT;
+    } else {
+      return Scheduler.Event.NEXT;
+    }
+  };
+}
+
+
+function green1RoutineEnd(snapshot) {
+  return async function () {
+    //--- Ending Routine 'green1' ---
+    green1Components.forEach( function(thisComponent) {
+      if (typeof thisComponent.setAutoDraw === 'function') {
+        thisComponent.setAutoDraw(false);
+      }
+    });
+    psychoJS.experiment.addData('green1.stopped', globalClock.getTime());
+    // update the trial handler
+    if (currentLoop instanceof MultiStairHandler) {
+      currentLoop.addResponse(res_green_1.corr, level);
+    }
+    psychoJS.experiment.addData('res_green_1.keys', res_green_1.keys);
+    if (typeof res_green_1.keys !== 'undefined') {  // we had a response
+        psychoJS.experiment.addData('res_green_1.rt', res_green_1.rt);
+        psychoJS.experiment.addData('res_green_1.duration', res_green_1.duration);
+        routineTimer.reset();
+        }
+    
+    res_green_1.stop();
+    // the Routine "green1" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
     // Routines running outside a loop should always advance the datafile row
