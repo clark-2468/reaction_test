@@ -151,6 +151,9 @@ flowScheduler.add(orange1RoutineEnd());
 flowScheduler.add(audiointroRoutineBegin());
 flowScheduler.add(audiointroRoutineEachFrame());
 flowScheduler.add(audiointroRoutineEnd());
+flowScheduler.add(audiotestRoutineBegin());
+flowScheduler.add(audiotestRoutineEachFrame());
+flowScheduler.add(audiotestRoutineEnd());
 flowScheduler.add(quitPsychoJS, '', true);
 
 // quit if user presses Cancel in dialog box:
@@ -161,6 +164,7 @@ psychoJS.start({
   expInfo: expInfo,
   resources: [
     // resources:
+    {'name': 'audio files/2500.wav', 'path': 'audio files/2500.wav'},
   ]
 });
 
@@ -300,6 +304,9 @@ var res_orange_1;
 var audiointroClock;
 var audiotext;
 var audiointro_res;
+var audiotestClock;
+var sound_testrun;
+var res_audio_testrun;
 var globalClock;
 var routineTimer;
 async function experimentInit() {
@@ -858,6 +865,16 @@ async function experimentInit() {
   });
   
   audiointro_res = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
+  
+  // Initialize components for Routine "audiotest"
+  audiotestClock = new util.Clock();
+  sound_testrun = new sound.Sound({
+      win: psychoJS.window,
+      value: 'audio files/2500.wav',
+      secs: (- 1),
+      });
+  sound_testrun.setVolume(1.0);
+  res_audio_testrun = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
   // Create some handy timers
   globalClock = new util.Clock();  // to track the time since experiment started
@@ -5360,6 +5377,142 @@ function audiointroRoutineEnd(snapshot) {
     
     audiointro_res.stop();
     // the Routine "audiointro" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset();
+    
+    // Routines running outside a loop should always advance the datafile row
+    if (currentLoop === psychoJS.experiment) {
+      psychoJS.experiment.nextEntry(snapshot);
+    }
+    return Scheduler.Event.NEXT;
+  }
+}
+
+
+var _res_audio_testrun_allKeys;
+var audiotestComponents;
+function audiotestRoutineBegin(snapshot) {
+  return async function () {
+    TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
+    
+    //--- Prepare to start Routine 'audiotest' ---
+    t = 0;
+    audiotestClock.reset(); // clock
+    frameN = -1;
+    continueRoutine = true; // until we're told otherwise
+    // update component parameters for each repeat
+    psychoJS.experiment.addData('audiotest.started', globalClock.getTime());
+    sound_testrun.setVolume(1.0);
+    res_audio_testrun.keys = undefined;
+    res_audio_testrun.rt = undefined;
+    _res_audio_testrun_allKeys = [];
+    // keep track of which components have finished
+    audiotestComponents = [];
+    audiotestComponents.push(sound_testrun);
+    audiotestComponents.push(res_audio_testrun);
+    
+    for (const thisComponent of audiotestComponents)
+      if ('status' in thisComponent)
+        thisComponent.status = PsychoJS.Status.NOT_STARTED;
+    return Scheduler.Event.NEXT;
+  }
+}
+
+
+function audiotestRoutineEachFrame() {
+  return async function () {
+    //--- Loop for each frame of Routine 'audiotest' ---
+    // get current time
+    t = audiotestClock.getTime();
+    frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
+    // update/draw components on each frame
+    // start/stop sound_testrun
+    if (t >= 2 && sound_testrun.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      sound_testrun.tStart = t;  // (not accounting for frame time here)
+      sound_testrun.frameNStart = frameN;  // exact frame index
+      
+      psychoJS.window.callOnFlip(function(){ sound_testrun.play(); });  // screen flip
+      sound_testrun.status = PsychoJS.Status.STARTED;
+    }
+    if (t >= (sound_testrun.getDuration() + sound_testrun.tStart)     && sound_testrun.status === PsychoJS.Status.STARTED) {
+      sound_testrun.stop();  // stop the sound (if longer than duration)
+      sound_testrun.status = PsychoJS.Status.FINISHED;
+    }
+    
+    // *res_audio_testrun* updates
+    if (t >= 2 && res_audio_testrun.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      res_audio_testrun.tStart = t;  // (not accounting for frame time here)
+      res_audio_testrun.frameNStart = frameN;  // exact frame index
+      
+      // keyboard checking is just starting
+      psychoJS.window.callOnFlip(function() { res_audio_testrun.clock.reset(); });  // t=0 on next screen flip
+      psychoJS.window.callOnFlip(function() { res_audio_testrun.start(); }); // start on screen flip
+      psychoJS.window.callOnFlip(function() { res_audio_testrun.clearEvents(); });
+    }
+    
+    if (res_audio_testrun.status === PsychoJS.Status.STARTED) {
+      let theseKeys = res_audio_testrun.getKeys({keyList: ['y', 'n', 'left', 'right', 'space'], waitRelease: false});
+      _res_audio_testrun_allKeys = _res_audio_testrun_allKeys.concat(theseKeys);
+      if (_res_audio_testrun_allKeys.length > 0) {
+        res_audio_testrun.keys = _res_audio_testrun_allKeys[_res_audio_testrun_allKeys.length - 1].name;  // just the last key pressed
+        res_audio_testrun.rt = _res_audio_testrun_allKeys[_res_audio_testrun_allKeys.length - 1].rt;
+        res_audio_testrun.duration = _res_audio_testrun_allKeys[_res_audio_testrun_allKeys.length - 1].duration;
+        // a response ends the routine
+        continueRoutine = false;
+      }
+    }
+    
+    // check for quit (typically the Esc key)
+    if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
+      return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
+    }
+    
+    // check if the Routine should terminate
+    if (!continueRoutine) {  // a component has requested a forced-end of Routine
+      return Scheduler.Event.NEXT;
+    }
+    
+    continueRoutine = false;  // reverts to True if at least one component still running
+    for (const thisComponent of audiotestComponents)
+      if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
+        continueRoutine = true;
+        break;
+      }
+    
+    // refresh the screen if continuing
+    if (continueRoutine) {
+      return Scheduler.Event.FLIP_REPEAT;
+    } else {
+      return Scheduler.Event.NEXT;
+    }
+  };
+}
+
+
+function audiotestRoutineEnd(snapshot) {
+  return async function () {
+    //--- Ending Routine 'audiotest' ---
+    for (const thisComponent of audiotestComponents) {
+      if (typeof thisComponent.setAutoDraw === 'function') {
+        thisComponent.setAutoDraw(false);
+      }
+    }
+    psychoJS.experiment.addData('audiotest.stopped', globalClock.getTime());
+    sound_testrun.stop();  // ensure sound has stopped at end of Routine
+    // update the trial handler
+    if (currentLoop instanceof MultiStairHandler) {
+      currentLoop.addResponse(res_audio_testrun.corr, level);
+    }
+    psychoJS.experiment.addData('res_audio_testrun.keys', res_audio_testrun.keys);
+    if (typeof res_audio_testrun.keys !== 'undefined') {  // we had a response
+        psychoJS.experiment.addData('res_audio_testrun.rt', res_audio_testrun.rt);
+        psychoJS.experiment.addData('res_audio_testrun.duration', res_audio_testrun.duration);
+        routineTimer.reset();
+        }
+    
+    res_audio_testrun.stop();
+    // the Routine "audiotest" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
     // Routines running outside a loop should always advance the datafile row
