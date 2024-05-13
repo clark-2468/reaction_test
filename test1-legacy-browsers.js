@@ -303,7 +303,8 @@ var audiotestClock;
 var sound_testrun;
 var res_audio_testrun;
 var audiotestpassedClock;
-var text_2;
+var autest_passed;
+var res_testpassed;
 var globalClock;
 var routineTimer;
 async function experimentInit() {
@@ -328,7 +329,7 @@ async function experimentInit() {
   text_howitworks = new visual.TextStim({
     win: psychoJS.window,
     name: 'text_howitworks',
-    text: 'This test is made of two parts\nVisual and \n\nThis test aims to test your reaction time. When you hear the sound being played or the image being shown, press the space bar on the keyboard as soon as you can. Do not try to predict the time that the stimulus will start as all stimuli are generated at random timings\n\nThe first one will be the test run for you familiarise with this test\n\nPress the space bar when you have finished reading\n',
+    text: 'This test is made of two parts\nVisual and Auditory\n\nThis test aims to test your reaction time. When you hear the sound being played or the image being shown, press the space bar on the keyboard as soon as you can. Do not try to predict the time that the stimulus will start as all stimuli are generated at random timings\n\nThe first one will be the test run for you familiarise with this test\n\nPress the space bar when you have finished reading\n',
     font: 'Open Sans',
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
@@ -875,10 +876,10 @@ async function experimentInit() {
   
   // Initialize components for Routine "audiotestpassed"
   audiotestpassedClock = new util.Clock();
-  text_2 = new visual.TextStim({
+  autest_passed = new visual.TextStim({
     win: psychoJS.window,
-    name: 'text_2',
-    text: 'You have done the testrun\n\nNow press ',
+    name: 'autest_passed',
+    text: 'You have done the testrun\n\n\n\nPress the space bar when you have finished reading',
     font: 'Open Sans',
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
@@ -886,6 +887,8 @@ async function experimentInit() {
     color: new util.Color('white'),  opacity: undefined,
     depth: 0.0 
   });
+  
+  res_testpassed = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
   // Create some handy timers
   globalClock = new util.Clock();  // to track the time since experiment started
@@ -5571,6 +5574,7 @@ function audiotestRoutineEnd(snapshot) {
 }
 
 
+var _res_testpassed_allKeys;
 var audiotestpassedComponents;
 function audiotestpassedRoutineBegin(snapshot) {
   return async function () {
@@ -5581,12 +5585,15 @@ function audiotestpassedRoutineBegin(snapshot) {
     audiotestpassedClock.reset(); // clock
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
-    routineTimer.add(1.000000);
     // update component parameters for each repeat
     psychoJS.experiment.addData('audiotestpassed.started', globalClock.getTime());
+    res_testpassed.keys = undefined;
+    res_testpassed.rt = undefined;
+    _res_testpassed_allKeys = [];
     // keep track of which components have finished
     audiotestpassedComponents = [];
-    audiotestpassedComponents.push(text_2);
+    audiotestpassedComponents.push(autest_passed);
+    audiotestpassedComponents.push(res_testpassed);
     
     audiotestpassedComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
@@ -5597,7 +5604,6 @@ function audiotestpassedRoutineBegin(snapshot) {
 }
 
 
-var frameRemains;
 function audiotestpassedRoutineEachFrame() {
   return async function () {
     //--- Loop for each frame of Routine 'audiotestpassed' ---
@@ -5606,18 +5612,38 @@ function audiotestpassedRoutineEachFrame() {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     
-    // *text_2* updates
-    if (t >= 0.0 && text_2.status === PsychoJS.Status.NOT_STARTED) {
+    // *autest_passed* updates
+    if (t >= 0 && autest_passed.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
-      text_2.tStart = t;  // (not accounting for frame time here)
-      text_2.frameNStart = frameN;  // exact frame index
+      autest_passed.tStart = t;  // (not accounting for frame time here)
+      autest_passed.frameNStart = frameN;  // exact frame index
       
-      text_2.setAutoDraw(true);
+      autest_passed.setAutoDraw(true);
     }
     
-    frameRemains = 0.0 + 1.0 - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
-    if (text_2.status === PsychoJS.Status.STARTED && t >= frameRemains) {
-      text_2.setAutoDraw(false);
+    
+    // *res_testpassed* updates
+    if (t >= 2 && res_testpassed.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      res_testpassed.tStart = t;  // (not accounting for frame time here)
+      res_testpassed.frameNStart = frameN;  // exact frame index
+      
+      // keyboard checking is just starting
+      psychoJS.window.callOnFlip(function() { res_testpassed.clock.reset(); });  // t=0 on next screen flip
+      psychoJS.window.callOnFlip(function() { res_testpassed.start(); }); // start on screen flip
+      psychoJS.window.callOnFlip(function() { res_testpassed.clearEvents(); });
+    }
+    
+    if (res_testpassed.status === PsychoJS.Status.STARTED) {
+      let theseKeys = res_testpassed.getKeys({keyList: ['y', 'n', 'left', 'right', 'space'], waitRelease: false});
+      _res_testpassed_allKeys = _res_testpassed_allKeys.concat(theseKeys);
+      if (_res_testpassed_allKeys.length > 0) {
+        res_testpassed.keys = _res_testpassed_allKeys[_res_testpassed_allKeys.length - 1].name;  // just the last key pressed
+        res_testpassed.rt = _res_testpassed_allKeys[_res_testpassed_allKeys.length - 1].rt;
+        res_testpassed.duration = _res_testpassed_allKeys[_res_testpassed_allKeys.length - 1].duration;
+        // a response ends the routine
+        continueRoutine = false;
+      }
     }
     
     // check for quit (typically the Esc key)
@@ -5638,7 +5664,7 @@ function audiotestpassedRoutineEachFrame() {
     });
     
     // refresh the screen if continuing
-    if (continueRoutine && routineTimer.getTime() > 0) {
+    if (continueRoutine) {
       return Scheduler.Event.FLIP_REPEAT;
     } else {
       return Scheduler.Event.NEXT;
@@ -5656,6 +5682,21 @@ function audiotestpassedRoutineEnd(snapshot) {
       }
     });
     psychoJS.experiment.addData('audiotestpassed.stopped', globalClock.getTime());
+    // update the trial handler
+    if (currentLoop instanceof MultiStairHandler) {
+      currentLoop.addResponse(res_testpassed.corr, level);
+    }
+    psychoJS.experiment.addData('res_testpassed.keys', res_testpassed.keys);
+    if (typeof res_testpassed.keys !== 'undefined') {  // we had a response
+        psychoJS.experiment.addData('res_testpassed.rt', res_testpassed.rt);
+        psychoJS.experiment.addData('res_testpassed.duration', res_testpassed.duration);
+        routineTimer.reset();
+        }
+    
+    res_testpassed.stop();
+    // the Routine "audiotestpassed" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset();
+    
     // Routines running outside a loop should always advance the datafile row
     if (currentLoop === psychoJS.experiment) {
       psychoJS.experiment.nextEntry(snapshot);
