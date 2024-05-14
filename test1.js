@@ -178,6 +178,9 @@ flowScheduler.add(audio_12500HzRoutineEnd());
 flowScheduler.add(audio_15000HzRoutineBegin());
 flowScheduler.add(audio_15000HzRoutineEachFrame());
 flowScheduler.add(audio_15000HzRoutineEnd());
+flowScheduler.add(outroRoutineBegin());
+flowScheduler.add(outroRoutineEachFrame());
+flowScheduler.add(outroRoutineEnd());
 flowScheduler.add(quitPsychoJS, '', true);
 
 // quit if user presses Cancel in dialog box:
@@ -363,6 +366,8 @@ var res_12500;
 var audio_15000HzClock;
 var sound_15000;
 var res_15000Hz;
+var outroClock;
+var text_outro;
 var globalClock;
 var routineTimer;
 async function experimentInit() {
@@ -387,7 +392,7 @@ async function experimentInit() {
   text_howitworks = new visual.TextStim({
     win: psychoJS.window,
     name: 'text_howitworks',
-    text: 'This test is made of two parts\nVisual and Auditory\n\nThis test aims to test your reaction time. When you hear the sound being played or the image being shown, press the space bar on the keyboard as soon as you can. Do not try to predict the time that the stimulus will start as all stimuli are generated at random timings\n\nThe first one will be the test run for you familiarise with this test\n\nPress the space bar when you have finished reading\n',
+    text: 'This test is made of two parts\nVisual and Auditory\n\nThis test aims to test your reaction time. When you hear the sound being played or the image being shown, press the space bar on the keyboard as soon as you can. Do not try to predict the time that the stimulus will start as all stimuli are generated at random timings\n\nPlease move the mouse cursor to the edge of the screen or off screen to reduce interference. If the computer stops working during the test, please tell me\n\nThe first one will be the test run for you familiarise with this test\n\nPress the space bar when you have finished reading\n',
     font: 'Open Sans',
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
@@ -1021,6 +1026,20 @@ async function experimentInit() {
       });
   sound_15000.setVolume(1.0);
   res_15000Hz = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
+  
+  // Initialize components for Routine "outro"
+  outroClock = new util.Clock();
+  text_outro = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_outro',
+    text: 'You have now finished the whole test\n\nThank you to your participation in the experiment\n\nPlease do not forget to apply hand sanitiser on the way out\n\nYou may press Esc to end the test',
+    font: 'Open Sans',
+    units: undefined, 
+    pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    languageStyle: 'LTR',
+    color: new util.Color('white'),  opacity: undefined,
+    depth: 0.0 
+  });
   
   // Create some handy timers
   globalClock = new util.Clock();  // to track the time since experiment started
@@ -6826,6 +6845,95 @@ function audio_15000HzRoutineEnd(snapshot) {
     
     res_15000Hz.stop();
     // the Routine "audio_15000Hz" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset();
+    
+    // Routines running outside a loop should always advance the datafile row
+    if (currentLoop === psychoJS.experiment) {
+      psychoJS.experiment.nextEntry(snapshot);
+    }
+    return Scheduler.Event.NEXT;
+  }
+}
+
+
+var outroComponents;
+function outroRoutineBegin(snapshot) {
+  return async function () {
+    TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
+    
+    //--- Prepare to start Routine 'outro' ---
+    t = 0;
+    outroClock.reset(); // clock
+    frameN = -1;
+    continueRoutine = true; // until we're told otherwise
+    // update component parameters for each repeat
+    psychoJS.experiment.addData('outro.started', globalClock.getTime());
+    // keep track of which components have finished
+    outroComponents = [];
+    outroComponents.push(text_outro);
+    
+    for (const thisComponent of outroComponents)
+      if ('status' in thisComponent)
+        thisComponent.status = PsychoJS.Status.NOT_STARTED;
+    return Scheduler.Event.NEXT;
+  }
+}
+
+
+function outroRoutineEachFrame() {
+  return async function () {
+    //--- Loop for each frame of Routine 'outro' ---
+    // get current time
+    t = outroClock.getTime();
+    frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
+    // update/draw components on each frame
+    
+    // *text_outro* updates
+    if (t >= 0.0 && text_outro.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      text_outro.tStart = t;  // (not accounting for frame time here)
+      text_outro.frameNStart = frameN;  // exact frame index
+      
+      text_outro.setAutoDraw(true);
+    }
+    
+    // check for quit (typically the Esc key)
+    if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
+      return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
+    }
+    
+    // check if the Routine should terminate
+    if (!continueRoutine) {  // a component has requested a forced-end of Routine
+      return Scheduler.Event.NEXT;
+    }
+    
+    continueRoutine = false;  // reverts to True if at least one component still running
+    for (const thisComponent of outroComponents)
+      if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
+        continueRoutine = true;
+        break;
+      }
+    
+    // refresh the screen if continuing
+    if (continueRoutine) {
+      return Scheduler.Event.FLIP_REPEAT;
+    } else {
+      return Scheduler.Event.NEXT;
+    }
+  };
+}
+
+
+function outroRoutineEnd(snapshot) {
+  return async function () {
+    //--- Ending Routine 'outro' ---
+    for (const thisComponent of outroComponents) {
+      if (typeof thisComponent.setAutoDraw === 'function') {
+        thisComponent.setAutoDraw(false);
+      }
+    }
+    psychoJS.experiment.addData('outro.stopped', globalClock.getTime());
+    // the Routine "outro" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
     // Routines running outside a loop should always advance the datafile row
