@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.1),
-    on May 14, 2024, at 09:37
+    on May 14, 2024, at 09:45
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -404,6 +404,12 @@ def setupDevices(expInfo, thisExp, win):
             deviceClass='keyboard',
             deviceName='res_purple_0_625',
         )
+    if deviceManager.getDevice('res_purple_0_75') is None:
+        # initialise res_purple_0_75
+        res_purple_0_75 = deviceManager.addDevice(
+            deviceClass='keyboard',
+            deviceName='res_purple_0_75',
+        )
     if deviceManager.getDevice('res_purple_0_875') is None:
         # initialise res_purple_0_875
         res_purple_0_875 = deviceManager.addDevice(
@@ -726,8 +732,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "red1" ---
     polygon_red_1 = visual.ShapeStim(
-        win=win, name='polygon_red_1', vertices='cross',
-        size=(0.5, 0.5),
+        win=win, name='polygon_red_1',
+        size=(0.5, 0.5), vertices='circle',
         ori=0.0, pos=(0, 0), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor=[1.0000, -1.0000, -1.0000],
         opacity=None, depth=0.0, interpolate=True)
@@ -893,6 +899,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ori=0.0, pos=(0, 0), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor=[0.5000, -1.0000, 0.5000],
         opacity=None, depth=0.0, interpolate=True)
+    res_purple_0_75 = keyboard.Keyboard(deviceName='res_purple_0_75')
     
     # --- Initialize components for Routine "purple0_875" ---
     polygon_purple_0_875 = visual.ShapeStim(
@@ -4112,8 +4119,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     continueRoutine = True
     # update component parameters for each repeat
     thisExp.addData('purple0_75.started', globalClock.getTime(format='float'))
+    res_purple_0_75.keys = []
+    res_purple_0_75.rt = []
+    _res_purple_0_75_allKeys = []
     # keep track of which components have finished
-    purple0_75Components = [polygon_purple_0_75]
+    purple0_75Components = [polygon_purple_0_75, res_purple_0_75]
     for thisComponent in purple0_75Components:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -4156,6 +4166,34 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # update params
             pass
         
+        # *res_purple_0_75* updates
+        waitOnFlip = False
+        
+        # if res_purple_0_75 is starting this frame...
+        if res_purple_0_75.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+            # keep track of start time/frame for later
+            res_purple_0_75.frameNStart = frameN  # exact frame index
+            res_purple_0_75.tStart = t  # local t and not account for scr refresh
+            res_purple_0_75.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(res_purple_0_75, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'res_purple_0_75.started')
+            # update status
+            res_purple_0_75.status = STARTED
+            # keyboard checking is just starting
+            waitOnFlip = True
+            win.callOnFlip(res_purple_0_75.clock.reset)  # t=0 on next screen flip
+            win.callOnFlip(res_purple_0_75.clearEvents, eventType='keyboard')  # clear events on next screen flip
+        if res_purple_0_75.status == STARTED and not waitOnFlip:
+            theseKeys = res_purple_0_75.getKeys(keyList=['y','n','left','right','space'], ignoreKeys=["escape"], waitRelease=False)
+            _res_purple_0_75_allKeys.extend(theseKeys)
+            if len(_res_purple_0_75_allKeys):
+                res_purple_0_75.keys = _res_purple_0_75_allKeys[-1].name  # just the last key pressed
+                res_purple_0_75.rt = _res_purple_0_75_allKeys[-1].rt
+                res_purple_0_75.duration = _res_purple_0_75_allKeys[-1].duration
+                # a response ends the routine
+                continueRoutine = False
+        
         # check for quit (typically the Esc key)
         if defaultKeyboard.getKeys(keyList=["escape"]):
             thisExp.status = FINISHED
@@ -4182,6 +4220,13 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     thisExp.addData('purple0_75.stopped', globalClock.getTime(format='float'))
+    # check responses
+    if res_purple_0_75.keys in ['', [], None]:  # No response was made
+        res_purple_0_75.keys = None
+    thisExp.addData('res_purple_0_75.keys',res_purple_0_75.keys)
+    if res_purple_0_75.keys != None:  # we had a response
+        thisExp.addData('res_purple_0_75.rt', res_purple_0_75.rt)
+        thisExp.addData('res_purple_0_75.duration', res_purple_0_75.duration)
     thisExp.nextEntry()
     # the Routine "purple0_75" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()

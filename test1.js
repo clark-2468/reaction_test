@@ -320,6 +320,7 @@ var polygon_purple_1;
 var res_purple_1;
 var orange0_5Clock;
 var polygon_orange_0_5;
+var res_orange_0_5;
 var orange0_625Clock;
 var polygon_orange_0_625;
 var res_orange_0_625;
@@ -843,6 +844,8 @@ async function experimentInit() {
     opacity: undefined, depth: 0, interpolate: true,
   });
   
+  res_orange_0_5 = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
+  
   // Initialize components for Routine "orange0_625"
   orange0_625Clock = new util.Clock();
   polygon_orange_0_625 = new visual.Polygon({
@@ -912,7 +915,7 @@ async function experimentInit() {
   audiotext = new visual.TextStim({
     win: psychoJS.window,
     name: 'audiotext',
-    text: 'You have now finished all visual stimuli \n\nThe next part is made of a series of sound stimuli with different frequencies. As you did for the visual stimuli, press the space bar when you hear the sound. \n\nPress space bar when you have finished reading\n\n',
+    text: 'You have now finished all visual stimuli \n\nThe next part is made of a series of sound stimuli with different frequencies. As you did for the visual stimuli, press the space bar when you hear the sound. \n\nThe first stimulus is your test run for you to familiarise with the test\n\nPress space bar when you have finished reading\n\n',
     font: 'Open Sans',
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
@@ -4829,6 +4832,7 @@ function purple1RoutineEnd(snapshot) {
 }
 
 
+var _res_orange_0_5_allKeys;
 var orange0_5Components;
 function orange0_5RoutineBegin(snapshot) {
   return async function () {
@@ -4841,9 +4845,13 @@ function orange0_5RoutineBegin(snapshot) {
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
     psychoJS.experiment.addData('orange0_5.started', globalClock.getTime());
+    res_orange_0_5.keys = undefined;
+    res_orange_0_5.rt = undefined;
+    _res_orange_0_5_allKeys = [];
     // keep track of which components have finished
     orange0_5Components = [];
     orange0_5Components.push(polygon_orange_0_5);
+    orange0_5Components.push(res_orange_0_5);
     
     for (const thisComponent of orange0_5Components)
       if ('status' in thisComponent)
@@ -4868,6 +4876,31 @@ function orange0_5RoutineEachFrame() {
       polygon_orange_0_5.frameNStart = frameN;  // exact frame index
       
       polygon_orange_0_5.setAutoDraw(true);
+    }
+    
+    
+    // *res_orange_0_5* updates
+    if (t >= 2 && res_orange_0_5.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      res_orange_0_5.tStart = t;  // (not accounting for frame time here)
+      res_orange_0_5.frameNStart = frameN;  // exact frame index
+      
+      // keyboard checking is just starting
+      psychoJS.window.callOnFlip(function() { res_orange_0_5.clock.reset(); });  // t=0 on next screen flip
+      psychoJS.window.callOnFlip(function() { res_orange_0_5.start(); }); // start on screen flip
+      psychoJS.window.callOnFlip(function() { res_orange_0_5.clearEvents(); });
+    }
+    
+    if (res_orange_0_5.status === PsychoJS.Status.STARTED) {
+      let theseKeys = res_orange_0_5.getKeys({keyList: ['y', 'n', 'left', 'right', 'space'], waitRelease: false});
+      _res_orange_0_5_allKeys = _res_orange_0_5_allKeys.concat(theseKeys);
+      if (_res_orange_0_5_allKeys.length > 0) {
+        res_orange_0_5.keys = _res_orange_0_5_allKeys[_res_orange_0_5_allKeys.length - 1].name;  // just the last key pressed
+        res_orange_0_5.rt = _res_orange_0_5_allKeys[_res_orange_0_5_allKeys.length - 1].rt;
+        res_orange_0_5.duration = _res_orange_0_5_allKeys[_res_orange_0_5_allKeys.length - 1].duration;
+        // a response ends the routine
+        continueRoutine = false;
+      }
     }
     
     // check for quit (typically the Esc key)
@@ -4906,6 +4939,18 @@ function orange0_5RoutineEnd(snapshot) {
       }
     }
     psychoJS.experiment.addData('orange0_5.stopped', globalClock.getTime());
+    // update the trial handler
+    if (currentLoop instanceof MultiStairHandler) {
+      currentLoop.addResponse(res_orange_0_5.corr, level);
+    }
+    psychoJS.experiment.addData('res_orange_0_5.keys', res_orange_0_5.keys);
+    if (typeof res_orange_0_5.keys !== 'undefined') {  // we had a response
+        psychoJS.experiment.addData('res_orange_0_5.rt', res_orange_0_5.rt);
+        psychoJS.experiment.addData('res_orange_0_5.duration', res_orange_0_5.duration);
+        routineTimer.reset();
+        }
+    
+    res_orange_0_5.stop();
     // the Routine "orange0_5" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
