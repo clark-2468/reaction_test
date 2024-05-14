@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.1),
-    on May 14, 2024, at 09:45
+    on May 14, 2024, at 09:49
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -421,6 +421,12 @@ def setupDevices(expInfo, thisExp, win):
         res_purple_1 = deviceManager.addDevice(
             deviceClass='keyboard',
             deviceName='res_purple_1',
+        )
+    if deviceManager.getDevice('res_orange_0_5') is None:
+        # initialise res_orange_0_5
+        res_orange_0_5 = deviceManager.addDevice(
+            deviceClass='keyboard',
+            deviceName='res_orange_0_5',
         )
     if deviceManager.getDevice('res_orange_0_625') is None:
         # initialise res_orange_0_625
@@ -926,6 +932,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ori=0.0, pos=(0, 0), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor=[0.0000, -0.4167, -1.0000],
         opacity=None, depth=0.0, interpolate=True)
+    res_orange_0_5 = keyboard.Keyboard(deviceName='res_orange_0_5')
     
     # --- Initialize components for Routine "orange0_625" ---
     polygon_orange_0_625 = visual.ShapeStim(
@@ -965,7 +972,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "audiointro" ---
     audiotext = visual.TextStim(win=win, name='audiotext',
-        text='You have now finished all visual stimuli \n\nThe next part is made of a series of sound stimuli with different frequencies. As you did for the visual stimuli, press the space bar when you hear the sound. \n\nPress space bar when you have finished reading\n\n',
+        text='You have now finished all visual stimuli \n\nThe next part is made of a series of sound stimuli with different frequencies. As you did for the visual stimuli, press the space bar when you hear the sound. \n\nThe first stimulus is your test run for you to familiarise with the test\n\nPress space bar when you have finished reading\n\n',
         font='Open Sans',
         pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
@@ -4467,8 +4474,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     continueRoutine = True
     # update component parameters for each repeat
     thisExp.addData('orange0_5.started', globalClock.getTime(format='float'))
+    res_orange_0_5.keys = []
+    res_orange_0_5.rt = []
+    _res_orange_0_5_allKeys = []
     # keep track of which components have finished
-    orange0_5Components = [polygon_orange_0_5]
+    orange0_5Components = [polygon_orange_0_5, res_orange_0_5]
     for thisComponent in orange0_5Components:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -4511,6 +4521,34 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # update params
             pass
         
+        # *res_orange_0_5* updates
+        waitOnFlip = False
+        
+        # if res_orange_0_5 is starting this frame...
+        if res_orange_0_5.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+            # keep track of start time/frame for later
+            res_orange_0_5.frameNStart = frameN  # exact frame index
+            res_orange_0_5.tStart = t  # local t and not account for scr refresh
+            res_orange_0_5.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(res_orange_0_5, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'res_orange_0_5.started')
+            # update status
+            res_orange_0_5.status = STARTED
+            # keyboard checking is just starting
+            waitOnFlip = True
+            win.callOnFlip(res_orange_0_5.clock.reset)  # t=0 on next screen flip
+            win.callOnFlip(res_orange_0_5.clearEvents, eventType='keyboard')  # clear events on next screen flip
+        if res_orange_0_5.status == STARTED and not waitOnFlip:
+            theseKeys = res_orange_0_5.getKeys(keyList=['y','n','left','right','space'], ignoreKeys=["escape"], waitRelease=False)
+            _res_orange_0_5_allKeys.extend(theseKeys)
+            if len(_res_orange_0_5_allKeys):
+                res_orange_0_5.keys = _res_orange_0_5_allKeys[-1].name  # just the last key pressed
+                res_orange_0_5.rt = _res_orange_0_5_allKeys[-1].rt
+                res_orange_0_5.duration = _res_orange_0_5_allKeys[-1].duration
+                # a response ends the routine
+                continueRoutine = False
+        
         # check for quit (typically the Esc key)
         if defaultKeyboard.getKeys(keyList=["escape"]):
             thisExp.status = FINISHED
@@ -4537,6 +4575,13 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     thisExp.addData('orange0_5.stopped', globalClock.getTime(format='float'))
+    # check responses
+    if res_orange_0_5.keys in ['', [], None]:  # No response was made
+        res_orange_0_5.keys = None
+    thisExp.addData('res_orange_0_5.keys',res_orange_0_5.keys)
+    if res_orange_0_5.keys != None:  # we had a response
+        thisExp.addData('res_orange_0_5.rt', res_orange_0_5.rt)
+        thisExp.addData('res_orange_0_5.duration', res_orange_0_5.duration)
     thisExp.nextEntry()
     # the Routine "orange0_5" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
