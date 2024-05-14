@@ -303,6 +303,7 @@ var polygon_purple_0_625;
 var res_purple_0_625;
 var purple0_75Clock;
 var polygon_purple_0_75;
+var res_purple_0_75;
 var purple0_875Clock;
 var polygon_purple_0_875;
 var res_purple_0_875;
@@ -486,9 +487,9 @@ async function experimentInit() {
   
   // Initialize components for Routine "red1"
   red1Clock = new util.Clock();
-  polygon_red_1 = new visual.ShapeStim ({
+  polygon_red_1 = new visual.Polygon({
     win: psychoJS.window, name: 'polygon_red_1', 
-    vertices: 'cross', size:[0.5, 0.5],
+    edges: 100, size:[0.5, 0.5],
     ori: 0.0, pos: [0, 0],
     anchor: 'center',
     lineWidth: 1.0, 
@@ -785,6 +786,8 @@ async function experimentInit() {
     fillColor: new util.Color([0.5, (- 1.0), 0.5]),
     opacity: undefined, depth: 0, interpolate: true,
   });
+  
+  res_purple_0_75 = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
   // Initialize components for Routine "purple0_875"
   purple0_875Clock = new util.Clock();
@@ -4451,6 +4454,7 @@ function purple0_625RoutineEnd(snapshot) {
 }
 
 
+var _res_purple_0_75_allKeys;
 var purple0_75Components;
 function purple0_75RoutineBegin(snapshot) {
   return async function () {
@@ -4463,9 +4467,13 @@ function purple0_75RoutineBegin(snapshot) {
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
     psychoJS.experiment.addData('purple0_75.started', globalClock.getTime());
+    res_purple_0_75.keys = undefined;
+    res_purple_0_75.rt = undefined;
+    _res_purple_0_75_allKeys = [];
     // keep track of which components have finished
     purple0_75Components = [];
     purple0_75Components.push(polygon_purple_0_75);
+    purple0_75Components.push(res_purple_0_75);
     
     purple0_75Components.forEach( function(thisComponent) {
       if ('status' in thisComponent)
@@ -4491,6 +4499,31 @@ function purple0_75RoutineEachFrame() {
       polygon_purple_0_75.frameNStart = frameN;  // exact frame index
       
       polygon_purple_0_75.setAutoDraw(true);
+    }
+    
+    
+    // *res_purple_0_75* updates
+    if (t >= 2 && res_purple_0_75.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      res_purple_0_75.tStart = t;  // (not accounting for frame time here)
+      res_purple_0_75.frameNStart = frameN;  // exact frame index
+      
+      // keyboard checking is just starting
+      psychoJS.window.callOnFlip(function() { res_purple_0_75.clock.reset(); });  // t=0 on next screen flip
+      psychoJS.window.callOnFlip(function() { res_purple_0_75.start(); }); // start on screen flip
+      psychoJS.window.callOnFlip(function() { res_purple_0_75.clearEvents(); });
+    }
+    
+    if (res_purple_0_75.status === PsychoJS.Status.STARTED) {
+      let theseKeys = res_purple_0_75.getKeys({keyList: ['y', 'n', 'left', 'right', 'space'], waitRelease: false});
+      _res_purple_0_75_allKeys = _res_purple_0_75_allKeys.concat(theseKeys);
+      if (_res_purple_0_75_allKeys.length > 0) {
+        res_purple_0_75.keys = _res_purple_0_75_allKeys[_res_purple_0_75_allKeys.length - 1].name;  // just the last key pressed
+        res_purple_0_75.rt = _res_purple_0_75_allKeys[_res_purple_0_75_allKeys.length - 1].rt;
+        res_purple_0_75.duration = _res_purple_0_75_allKeys[_res_purple_0_75_allKeys.length - 1].duration;
+        // a response ends the routine
+        continueRoutine = false;
+      }
     }
     
     // check for quit (typically the Esc key)
@@ -4529,6 +4562,18 @@ function purple0_75RoutineEnd(snapshot) {
       }
     });
     psychoJS.experiment.addData('purple0_75.stopped', globalClock.getTime());
+    // update the trial handler
+    if (currentLoop instanceof MultiStairHandler) {
+      currentLoop.addResponse(res_purple_0_75.corr, level);
+    }
+    psychoJS.experiment.addData('res_purple_0_75.keys', res_purple_0_75.keys);
+    if (typeof res_purple_0_75.keys !== 'undefined') {  // we had a response
+        psychoJS.experiment.addData('res_purple_0_75.rt', res_purple_0_75.rt);
+        psychoJS.experiment.addData('res_purple_0_75.duration', res_purple_0_75.duration);
+        routineTimer.reset();
+        }
+    
+    res_purple_0_75.stop();
     // the Routine "purple0_75" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
