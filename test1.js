@@ -190,6 +190,8 @@ psychoJS.start({
     // resources:
     {'name': 'audio files/2500.wav', 'path': 'audio files/2500.wav'},
     {'name': 'audio files/500.wav', 'path': 'audio files/500.wav'},
+    {'name': 'audio files/5000.wav', 'path': 'audio files/5000.wav'},
+    {'name': 'audio files/7500.wav', 'path': 'audio files/7500.wav'},
   ]
 });
 
@@ -340,9 +342,13 @@ var sound_500Hz;
 var res_500Hz;
 var audio_2500HzClock;
 var sound_2500Hz;
-var res_5000Hz;
+var res_2500Hz;
 var audio_5000HzClock;
+var sound_5000Hz;
+var res_5000Hz;
 var audio_7500HzClock;
+var sound_7500Hz;
+var res_7500Hz;
 var audio_10000HzClock;
 var audio_12500HzClock;
 var audio_15000HzClock;
@@ -949,12 +955,28 @@ async function experimentInit() {
       secs: (- 1),
       });
   sound_2500Hz.setVolume(1.0);
-  res_5000Hz = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
+  res_2500Hz = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
   // Initialize components for Routine "audio_5000Hz"
   audio_5000HzClock = new util.Clock();
+  sound_5000Hz = new sound.Sound({
+      win: psychoJS.window,
+      value: 'audio files/5000.wav',
+      secs: (- 1),
+      });
+  sound_5000Hz.setVolume(1.0);
+  res_5000Hz = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
+  
   // Initialize components for Routine "audio_7500Hz"
   audio_7500HzClock = new util.Clock();
+  sound_7500Hz = new sound.Sound({
+      win: psychoJS.window,
+      value: 'audio files/7500.wav',
+      secs: (- 1),
+      });
+  sound_7500Hz.setVolume(1.0);
+  res_7500Hz = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
+  
   // Initialize components for Routine "audio_10000Hz"
   audio_10000HzClock = new util.Clock();
   // Initialize components for Routine "audio_12500Hz"
@@ -5876,7 +5898,7 @@ function audio_500HzRoutineEnd(snapshot) {
 }
 
 
-var _res_5000Hz_allKeys;
+var _res_2500Hz_allKeys;
 var audio_2500HzComponents;
 function audio_2500HzRoutineBegin(snapshot) {
   return async function () {
@@ -5890,13 +5912,13 @@ function audio_2500HzRoutineBegin(snapshot) {
     // update component parameters for each repeat
     psychoJS.experiment.addData('audio_2500Hz.started', globalClock.getTime());
     sound_2500Hz.setVolume(1.0);
-    res_5000Hz.keys = undefined;
-    res_5000Hz.rt = undefined;
-    _res_5000Hz_allKeys = [];
+    res_2500Hz.keys = undefined;
+    res_2500Hz.rt = undefined;
+    _res_2500Hz_allKeys = [];
     // keep track of which components have finished
     audio_2500HzComponents = [];
     audio_2500HzComponents.push(sound_2500Hz);
-    audio_2500HzComponents.push(res_5000Hz);
+    audio_2500HzComponents.push(res_2500Hz);
     
     for (const thisComponent of audio_2500HzComponents)
       if ('status' in thisComponent)
@@ -5927,25 +5949,25 @@ function audio_2500HzRoutineEachFrame() {
       sound_2500Hz.status = PsychoJS.Status.FINISHED;
     }
     
-    // *res_5000Hz* updates
-    if (t >= 2 && res_5000Hz.status === PsychoJS.Status.NOT_STARTED) {
+    // *res_2500Hz* updates
+    if (t >= 2 && res_2500Hz.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
-      res_5000Hz.tStart = t;  // (not accounting for frame time here)
-      res_5000Hz.frameNStart = frameN;  // exact frame index
+      res_2500Hz.tStart = t;  // (not accounting for frame time here)
+      res_2500Hz.frameNStart = frameN;  // exact frame index
       
       // keyboard checking is just starting
-      psychoJS.window.callOnFlip(function() { res_5000Hz.clock.reset(); });  // t=0 on next screen flip
-      psychoJS.window.callOnFlip(function() { res_5000Hz.start(); }); // start on screen flip
-      psychoJS.window.callOnFlip(function() { res_5000Hz.clearEvents(); });
+      psychoJS.window.callOnFlip(function() { res_2500Hz.clock.reset(); });  // t=0 on next screen flip
+      psychoJS.window.callOnFlip(function() { res_2500Hz.start(); }); // start on screen flip
+      psychoJS.window.callOnFlip(function() { res_2500Hz.clearEvents(); });
     }
     
-    if (res_5000Hz.status === PsychoJS.Status.STARTED) {
-      let theseKeys = res_5000Hz.getKeys({keyList: ['y', 'n', 'left', 'right', 'space'], waitRelease: false});
-      _res_5000Hz_allKeys = _res_5000Hz_allKeys.concat(theseKeys);
-      if (_res_5000Hz_allKeys.length > 0) {
-        res_5000Hz.keys = _res_5000Hz_allKeys[_res_5000Hz_allKeys.length - 1].name;  // just the last key pressed
-        res_5000Hz.rt = _res_5000Hz_allKeys[_res_5000Hz_allKeys.length - 1].rt;
-        res_5000Hz.duration = _res_5000Hz_allKeys[_res_5000Hz_allKeys.length - 1].duration;
+    if (res_2500Hz.status === PsychoJS.Status.STARTED) {
+      let theseKeys = res_2500Hz.getKeys({keyList: ['y', 'n', 'left', 'right', 'space'], waitRelease: false});
+      _res_2500Hz_allKeys = _res_2500Hz_allKeys.concat(theseKeys);
+      if (_res_2500Hz_allKeys.length > 0) {
+        res_2500Hz.keys = _res_2500Hz_allKeys[_res_2500Hz_allKeys.length - 1].name;  // just the last key pressed
+        res_2500Hz.rt = _res_2500Hz_allKeys[_res_2500Hz_allKeys.length - 1].rt;
+        res_2500Hz.duration = _res_2500Hz_allKeys[_res_2500Hz_allKeys.length - 1].duration;
         // a response ends the routine
         continueRoutine = false;
       }
@@ -5990,16 +6012,16 @@ function audio_2500HzRoutineEnd(snapshot) {
     sound_2500Hz.stop();  // ensure sound has stopped at end of Routine
     // update the trial handler
     if (currentLoop instanceof MultiStairHandler) {
-      currentLoop.addResponse(res_5000Hz.corr, level);
+      currentLoop.addResponse(res_2500Hz.corr, level);
     }
-    psychoJS.experiment.addData('res_5000Hz.keys', res_5000Hz.keys);
-    if (typeof res_5000Hz.keys !== 'undefined') {  // we had a response
-        psychoJS.experiment.addData('res_5000Hz.rt', res_5000Hz.rt);
-        psychoJS.experiment.addData('res_5000Hz.duration', res_5000Hz.duration);
+    psychoJS.experiment.addData('res_2500Hz.keys', res_2500Hz.keys);
+    if (typeof res_2500Hz.keys !== 'undefined') {  // we had a response
+        psychoJS.experiment.addData('res_2500Hz.rt', res_2500Hz.rt);
+        psychoJS.experiment.addData('res_2500Hz.duration', res_2500Hz.duration);
         routineTimer.reset();
         }
     
-    res_5000Hz.stop();
+    res_2500Hz.stop();
     // the Routine "audio_2500Hz" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
@@ -6012,6 +6034,7 @@ function audio_2500HzRoutineEnd(snapshot) {
 }
 
 
+var _res_5000Hz_allKeys;
 var audio_5000HzComponents;
 function audio_5000HzRoutineBegin(snapshot) {
   return async function () {
@@ -6024,8 +6047,14 @@ function audio_5000HzRoutineBegin(snapshot) {
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
     psychoJS.experiment.addData('audio_5000Hz.started', globalClock.getTime());
+    sound_5000Hz.setVolume(1.0);
+    res_5000Hz.keys = undefined;
+    res_5000Hz.rt = undefined;
+    _res_5000Hz_allKeys = [];
     // keep track of which components have finished
     audio_5000HzComponents = [];
+    audio_5000HzComponents.push(sound_5000Hz);
+    audio_5000HzComponents.push(res_5000Hz);
     
     for (const thisComponent of audio_5000HzComponents)
       if ('status' in thisComponent)
@@ -6042,6 +6071,44 @@ function audio_5000HzRoutineEachFrame() {
     t = audio_5000HzClock.getTime();
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
+    // start/stop sound_5000Hz
+    if (t >= 2 && sound_5000Hz.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      sound_5000Hz.tStart = t;  // (not accounting for frame time here)
+      sound_5000Hz.frameNStart = frameN;  // exact frame index
+      
+      psychoJS.window.callOnFlip(function(){ sound_5000Hz.play(); });  // screen flip
+      sound_5000Hz.status = PsychoJS.Status.STARTED;
+    }
+    if (t >= (sound_5000Hz.getDuration() + sound_5000Hz.tStart)     && sound_5000Hz.status === PsychoJS.Status.STARTED) {
+      sound_5000Hz.stop();  // stop the sound (if longer than duration)
+      sound_5000Hz.status = PsychoJS.Status.FINISHED;
+    }
+    
+    // *res_5000Hz* updates
+    if (t >= 2 && res_5000Hz.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      res_5000Hz.tStart = t;  // (not accounting for frame time here)
+      res_5000Hz.frameNStart = frameN;  // exact frame index
+      
+      // keyboard checking is just starting
+      psychoJS.window.callOnFlip(function() { res_5000Hz.clock.reset(); });  // t=0 on next screen flip
+      psychoJS.window.callOnFlip(function() { res_5000Hz.start(); }); // start on screen flip
+      psychoJS.window.callOnFlip(function() { res_5000Hz.clearEvents(); });
+    }
+    
+    if (res_5000Hz.status === PsychoJS.Status.STARTED) {
+      let theseKeys = res_5000Hz.getKeys({keyList: ['y', 'n', 'left', 'right', 'space'], waitRelease: false});
+      _res_5000Hz_allKeys = _res_5000Hz_allKeys.concat(theseKeys);
+      if (_res_5000Hz_allKeys.length > 0) {
+        res_5000Hz.keys = _res_5000Hz_allKeys[_res_5000Hz_allKeys.length - 1].name;  // just the last key pressed
+        res_5000Hz.rt = _res_5000Hz_allKeys[_res_5000Hz_allKeys.length - 1].rt;
+        res_5000Hz.duration = _res_5000Hz_allKeys[_res_5000Hz_allKeys.length - 1].duration;
+        // a response ends the routine
+        continueRoutine = false;
+      }
+    }
+    
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -6078,6 +6145,19 @@ function audio_5000HzRoutineEnd(snapshot) {
       }
     }
     psychoJS.experiment.addData('audio_5000Hz.stopped', globalClock.getTime());
+    sound_5000Hz.stop();  // ensure sound has stopped at end of Routine
+    // update the trial handler
+    if (currentLoop instanceof MultiStairHandler) {
+      currentLoop.addResponse(res_5000Hz.corr, level);
+    }
+    psychoJS.experiment.addData('res_5000Hz.keys', res_5000Hz.keys);
+    if (typeof res_5000Hz.keys !== 'undefined') {  // we had a response
+        psychoJS.experiment.addData('res_5000Hz.rt', res_5000Hz.rt);
+        psychoJS.experiment.addData('res_5000Hz.duration', res_5000Hz.duration);
+        routineTimer.reset();
+        }
+    
+    res_5000Hz.stop();
     // the Routine "audio_5000Hz" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
@@ -6090,6 +6170,7 @@ function audio_5000HzRoutineEnd(snapshot) {
 }
 
 
+var _res_7500Hz_allKeys;
 var audio_7500HzComponents;
 function audio_7500HzRoutineBegin(snapshot) {
   return async function () {
@@ -6102,8 +6183,14 @@ function audio_7500HzRoutineBegin(snapshot) {
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
     psychoJS.experiment.addData('audio_7500Hz.started', globalClock.getTime());
+    sound_7500Hz.setVolume(1.0);
+    res_7500Hz.keys = undefined;
+    res_7500Hz.rt = undefined;
+    _res_7500Hz_allKeys = [];
     // keep track of which components have finished
     audio_7500HzComponents = [];
+    audio_7500HzComponents.push(sound_7500Hz);
+    audio_7500HzComponents.push(res_7500Hz);
     
     for (const thisComponent of audio_7500HzComponents)
       if ('status' in thisComponent)
@@ -6120,6 +6207,44 @@ function audio_7500HzRoutineEachFrame() {
     t = audio_7500HzClock.getTime();
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
+    // start/stop sound_7500Hz
+    if (t >= 2 && sound_7500Hz.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      sound_7500Hz.tStart = t;  // (not accounting for frame time here)
+      sound_7500Hz.frameNStart = frameN;  // exact frame index
+      
+      psychoJS.window.callOnFlip(function(){ sound_7500Hz.play(); });  // screen flip
+      sound_7500Hz.status = PsychoJS.Status.STARTED;
+    }
+    if (t >= (sound_7500Hz.getDuration() + sound_7500Hz.tStart)     && sound_7500Hz.status === PsychoJS.Status.STARTED) {
+      sound_7500Hz.stop();  // stop the sound (if longer than duration)
+      sound_7500Hz.status = PsychoJS.Status.FINISHED;
+    }
+    
+    // *res_7500Hz* updates
+    if (t >= 2 && res_7500Hz.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      res_7500Hz.tStart = t;  // (not accounting for frame time here)
+      res_7500Hz.frameNStart = frameN;  // exact frame index
+      
+      // keyboard checking is just starting
+      psychoJS.window.callOnFlip(function() { res_7500Hz.clock.reset(); });  // t=0 on next screen flip
+      psychoJS.window.callOnFlip(function() { res_7500Hz.start(); }); // start on screen flip
+      psychoJS.window.callOnFlip(function() { res_7500Hz.clearEvents(); });
+    }
+    
+    if (res_7500Hz.status === PsychoJS.Status.STARTED) {
+      let theseKeys = res_7500Hz.getKeys({keyList: ['y', 'n', 'left', 'right', 'space'], waitRelease: false});
+      _res_7500Hz_allKeys = _res_7500Hz_allKeys.concat(theseKeys);
+      if (_res_7500Hz_allKeys.length > 0) {
+        res_7500Hz.keys = _res_7500Hz_allKeys[_res_7500Hz_allKeys.length - 1].name;  // just the last key pressed
+        res_7500Hz.rt = _res_7500Hz_allKeys[_res_7500Hz_allKeys.length - 1].rt;
+        res_7500Hz.duration = _res_7500Hz_allKeys[_res_7500Hz_allKeys.length - 1].duration;
+        // a response ends the routine
+        continueRoutine = false;
+      }
+    }
+    
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -6156,6 +6281,19 @@ function audio_7500HzRoutineEnd(snapshot) {
       }
     }
     psychoJS.experiment.addData('audio_7500Hz.stopped', globalClock.getTime());
+    sound_7500Hz.stop();  // ensure sound has stopped at end of Routine
+    // update the trial handler
+    if (currentLoop instanceof MultiStairHandler) {
+      currentLoop.addResponse(res_7500Hz.corr, level);
+    }
+    psychoJS.experiment.addData('res_7500Hz.keys', res_7500Hz.keys);
+    if (typeof res_7500Hz.keys !== 'undefined') {  // we had a response
+        psychoJS.experiment.addData('res_7500Hz.rt', res_7500Hz.rt);
+        psychoJS.experiment.addData('res_7500Hz.duration', res_7500Hz.duration);
+        routineTimer.reset();
+        }
+    
+    res_7500Hz.stop();
     // the Routine "audio_7500Hz" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
