@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.1),
-    on May 14, 2024, at 09:49
+    on May 18, 2024, at 18:57
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -673,7 +673,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "howitworks" ---
     text_howitworks = visual.TextStim(win=win, name='text_howitworks',
-        text='This test is made of two parts\nVisual and Auditory\n\nThis test aims to test your reaction time. When you hear the sound being played or the image being shown, press the space bar on the keyboard as soon as you can. Do not try to predict the time that the stimulus will start as all stimuli are generated at random timings\n\nThe first one will be the test run for you familiarise with this test\n\nPress the space bar when you have finished reading\n',
+        text='This test is made of two parts\nVisual and Auditory\n\nThis test aims to test your reaction time. When you hear the sound being played or the image being shown, press the space bar on the keyboard as soon as you can. Do not try to predict the time that the stimulus will start as all stimuli are generated at random timings\n\nPlease move the mouse cursor to the edge of the screen or off screen to reduce interference. If the computer stops working during the test, please tell me\n\nThe first one will be the test run for you familiarise with this test\n\nPress the space bar when you have finished reading\n',
         font='Open Sans',
         pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
@@ -1077,6 +1077,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     )
     sound_15000.setVolume(1.0)
     res_15000Hz = keyboard.Keyboard(deviceName='res_15000Hz')
+    
+    # --- Initialize components for Routine "outro" ---
+    text_outro = visual.TextStim(win=win, name='text_outro',
+        text='You have now finished the whole test\n\nThank you to your participation in the experiment\n\nPlease do not forget to apply hand sanitiser on the way out\n\nYou may press Esc to end the test',
+        font='Open Sans',
+        pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+        color='white', colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=0.0);
     
     # create some handy timers
     
@@ -6216,6 +6225,84 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         thisExp.addData('res_15000Hz.duration', res_15000Hz.duration)
     thisExp.nextEntry()
     # the Routine "audio_15000Hz" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
+    
+    # --- Prepare to start Routine "outro" ---
+    continueRoutine = True
+    # update component parameters for each repeat
+    thisExp.addData('outro.started', globalClock.getTime(format='float'))
+    # keep track of which components have finished
+    outroComponents = [text_outro]
+    for thisComponent in outroComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    frameN = -1
+    
+    # --- Run Routine "outro" ---
+    routineForceEnded = not continueRoutine
+    while continueRoutine:
+        # get current time
+        t = routineTimer.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # *text_outro* updates
+        
+        # if text_outro is starting this frame...
+        if text_outro.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_outro.frameNStart = frameN  # exact frame index
+            text_outro.tStart = t  # local t and not account for scr refresh
+            text_outro.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_outro, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'text_outro.started')
+            # update status
+            text_outro.status = STARTED
+            text_outro.setAutoDraw(True)
+        
+        # if text_outro is active this frame...
+        if text_outro.status == STARTED:
+            # update params
+            pass
+        
+        # check for quit (typically the Esc key)
+        if defaultKeyboard.getKeys(keyList=["escape"]):
+            thisExp.status = FINISHED
+        if thisExp.status == FINISHED or endExpNow:
+            endExperiment(thisExp, win=win)
+            return
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            routineForceEnded = True
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in outroComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # --- Ending Routine "outro" ---
+    for thisComponent in outroComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    thisExp.addData('outro.stopped', globalClock.getTime(format='float'))
+    thisExp.nextEntry()
+    # the Routine "outro" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
     # mark experiment as finished
