@@ -3902,25 +3902,25 @@
   <Flow>
     <Routine name="intro"/>
     <Routine name="howitworks"/>
-    <Routine name="test"/>
-    <Routine name="test_passed"/>
-    <LoopInitiator loopType="TrialHandler" name="redloop">
+    <LoopInitiator loopType="TrialHandler" name="testloop">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
       <Param name="conditions" updates="None" val="None" valType="str"/>
       <Param name="conditionsFile" updates="None" val="" valType="file"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="loopType" updates="None" val="random" valType="str"/>
-      <Param name="nReps" updates="None" val="3" valType="num"/>
-      <Param name="name" updates="None" val="redloop" valType="code"/>
+      <Param name="nReps" updates="None" val="5" valType="num"/>
+      <Param name="name" updates="None" val="testloop" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
+    <Routine name="test"/>
+    <LoopTerminator name="testloop"/>
+    <Routine name="test_passed"/>
     <Routine name="red0_5"/>
     <Routine name="red0_625"/>
     <Routine name="red0_75"/>
     <Routine name="red0_875"/>
     <Routine name="red1"/>
-    <LoopTerminator name="redloop"/>
     <Routine name="yellow0_5"/>
     <Routine name="yellow0_625"/>
     <Routine name="yellow0_75"/>
@@ -3947,7 +3947,19 @@
     <Routine name="orange0_875"/>
     <Routine name="orange1"/>
     <Routine name="audiointro"/>
+    <LoopInitiator loopType="TrialHandler" name="audiotestloop">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="None" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="" valType="file"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="loopType" updates="None" val="random" valType="str"/>
+      <Param name="nReps" updates="None" val="3" valType="num"/>
+      <Param name="name" updates="None" val="audiotestloop" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
     <Routine name="audiotest"/>
+    <LoopTerminator name="audiotestloop"/>
     <Routine name="audiotestpassed"/>
     <Routine name="audio_500Hz_0_25"/>
     <Routine name="audio_500Hz_0_5"/>
@@ -3973,7 +3985,6 @@
     <Routine name="audio_12500Hz_0_5"/>
     <Routine name="audio_12500Hz_0_75"/>
     <Routine name="audio_12500Hz"/>
-    <Routine name="audio_15000Hz"/>
     <Routine name="outro"/>
   </Flow>
 </PsychoPy2experiment>
