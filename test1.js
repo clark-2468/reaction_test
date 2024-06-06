@@ -554,7 +554,7 @@ async function experimentInit() {
     lineWidth: 1.0, 
     colorSpace: 'rgb',
     lineColor: new util.Color('white'),
-    fillColor: new util.Color([0.0039, (- 1.0), (- 1.0)]),
+    fillColor: new util.Color([0.0, (- 1.0), (- 1.0)]),
     opacity: undefined, depth: -1, interpolate: true,
   });
   
@@ -568,7 +568,7 @@ async function experimentInit() {
     lineWidth: 1.0, 
     colorSpace: 'rgb',
     lineColor: new util.Color('white'),
-    fillColor: new util.Color([0.2471, (- 1.0), (- 1.0)]),
+    fillColor: new util.Color([0.25, (- 1.0), (- 1.0)]),
     opacity: undefined, depth: 0, interpolate: true,
   });
   
@@ -952,7 +952,7 @@ async function experimentInit() {
     lineWidth: 1.0, 
     colorSpace: 'rgb',
     lineColor: new util.Color('white'),
-    fillColor: new util.Color([0.0, (- 0.4167), (- 1.0)]),
+    fillColor: new util.Color([0.0, (- 0.3333), (- 1.0)]),
     opacity: undefined, depth: 0, interpolate: true,
   });
   
@@ -968,7 +968,7 @@ async function experimentInit() {
     lineWidth: 1.0, 
     colorSpace: 'rgb',
     lineColor: new util.Color('white'),
-    fillColor: new util.Color([0.25, (- 0.2708), (- 1.0)]),
+    fillColor: new util.Color([0.25, (- 0.1667), (- 1.0)]),
     opacity: undefined, depth: 0, interpolate: true,
   });
   
@@ -984,7 +984,7 @@ async function experimentInit() {
     lineWidth: 1.0, 
     colorSpace: 'rgb',
     lineColor: new util.Color('white'),
-    fillColor: new util.Color([0.5, (- 0.125), (- 1.0)]),
+    fillColor: new util.Color([0.5, 0.0, (- 1.0)]),
     opacity: undefined, depth: 0, interpolate: true,
   });
   
@@ -1000,7 +1000,7 @@ async function experimentInit() {
     lineWidth: 1.0, 
     colorSpace: 'rgb',
     lineColor: new util.Color('white'),
-    fillColor: new util.Color([0.75, 0.0208, (- 1.0)]),
+    fillColor: new util.Color([0.75, 0.1667, (- 1.0)]),
     opacity: undefined, depth: 0, interpolate: true,
   });
   
@@ -1016,7 +1016,7 @@ async function experimentInit() {
     lineWidth: 1.0, 
     colorSpace: 'rgb',
     lineColor: new util.Color('white'),
-    fillColor: new util.Color([1.0, 0.1667, (- 1.0)]),
+    fillColor: new util.Color([1.0, 0.3333, (- 1.0)]),
     opacity: undefined, depth: 0, interpolate: true,
   });
   
