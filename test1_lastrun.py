@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.1),
-    on June 05, 2024, at 21:27
+    on June 08, 2024, at 14:04
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -128,7 +128,7 @@ def setupData(expInfo, dataDir=None):
     thisExp = data.ExperimentHandler(
         name=expName, version='',
         extraInfo=expInfo, runtimeInfo=None,
-        originPath='C:\\Users\\Eli L\\Documents\\PsychoPy\\test1_lastrun.py',
+        originPath='E:\\桌面\\CrestAwardProg\\test1_lastrun.py',
         savePickle=True, saveWideText=True,
         dataFileName=dataDir + os.sep + filename, sortColumns='time'
     )
@@ -867,7 +867,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "intro" ---
     text = visual.TextStim(win=win, name='text',
-        text='Hello\n\nWelcome to the PsychoPy script developed by Eli, for testing average reaction time depending on different colours. I really appreciate your participation as every piece of data contributes to the final conclusion\n\nPress the space bar when you have finished reading',
+        text='Hello\n\nWelcome to the PsychoPy script developed by Eli, for testing average reaction time depending on different colours. I really appreciate your participation as every piece of data contributes to the final conclusion\n\nHere is a reminder of the list of things you need to do during the reaction time test\n\npress the space bar on the keyboard as soon as you receive the stimuli. \n\nplace your elbow at 90 degrees to the desk  \n\nuse the index finger of your dominant hand\n\ntake your glasses off if you are wearing them. \n\nPress the space bar when you have finished reading',
         font='Open Sans',
         pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
@@ -877,7 +877,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "howitworks" ---
     text_howitworks = visual.TextStim(win=win, name='text_howitworks',
-        text='This test is made of two parts\nVisual and Auditory\n\nThis test aims to test your reaction time. When you hear the sound being played or the image being shown, press the space bar on the keyboard as soon as you can. Do not try to predict the time that the stimulus will start as all stimuli are generated at random timings\n\nPlease move the mouse cursor to the edge of the screen or off screen to reduce interference. If the computer stops working during the test, please tell me\n\nThe first one will be the test run for you familiarise with this test\n\nPress the space bar when you have finished reading\n',
+        text='This reaction time test is made of two parts\nVisual and Auditory\n\nThis test aims to test your reaction time. When you hear the sound being played or the image being shown, press the space bar on the keyboard as soon as you can. Do not try to predict the time that the stimulus will start as all stimuli are generated at random timings\n\nPlease move the mouse cursor to the edge of the screen or off screen to reduce interference. If the computer stops working during the test, please tell me\n\nThe first few stimuli will be the test runs for you familiarise with this test. \nPlease adjust the angle of the screen so that the circle is at the centre of your view without any dsitortion of the shape.\n\nPress the space bar when you have finished reading\n',
         font='Open Sans',
         pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
@@ -910,7 +910,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win, name='polygon_red_0_5',
         size=(0.5, 0.5), vertices='circle',
         ori=0.0, pos=(0, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor=[0.0039, -1.0000, -1.0000],
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor=[0.0000, -1.0000, -1.0000],
         opacity=None, depth=-1.0, interpolate=True)
     
     # --- Initialize components for Routine "red0_625" ---
@@ -918,7 +918,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win, name='polygon_red_0_625',
         size=(0.5, 0.5), vertices='circle',
         ori=0.0, pos=(0, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor=[0.2471, -1.0000, -1.0000],
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor=[0.2500, -1.0000, -1.0000],
         opacity=None, depth=0.0, interpolate=True)
     res_red_0_625 = keyboard.Keyboard(deviceName='res_red_0_625')
     
@@ -1134,7 +1134,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win, name='polygon_orange_0_5',
         size=(0.5, 0.5), vertices='circle',
         ori=0.0, pos=(0, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor=[0.0000, -0.4167, -1.0000],
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor=[0.0000, -0.3333, -1.0000],
         opacity=None, depth=0.0, interpolate=True)
     res_orange_0_5 = keyboard.Keyboard(deviceName='res_orange_0_5')
     
@@ -1143,7 +1143,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win, name='polygon_orange_0_625',
         size=(0.5, 0.5), vertices='circle',
         ori=0.0, pos=(0, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor=[0.2500, -0.2708, -1.0000],
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor=[0.2500, -0.1667, -1.0000],
         opacity=None, depth=0.0, interpolate=True)
     res_orange_0_625 = keyboard.Keyboard(deviceName='res_orange_0_625')
     
@@ -1152,7 +1152,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win, name='polygon_orange_0_75',
         size=(0.5, 0.5), vertices='circle',
         ori=0.0, pos=(0, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor=[0.5000, -0.1250, -1.0000],
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor=[0.5000, 0.0000, -1.0000],
         opacity=None, depth=0.0, interpolate=True)
     res_orange_0_75 = keyboard.Keyboard(deviceName='res_orange_0_75')
     
@@ -1161,7 +1161,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win, name='polygon_res_0_875',
         size=(0.5, 0.5), vertices='circle',
         ori=0.0, pos=(0, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor=[0.7500, 0.0208, -1.0000],
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor=[0.7500, 0.1667, -1.0000],
         opacity=None, depth=0.0, interpolate=True)
     res_orange_0_875 = keyboard.Keyboard(deviceName='res_orange_0_875')
     
@@ -1170,7 +1170,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win, name='polygon_orange_1',
         size=(0.5, 0.5), vertices='circle',
         ori=0.0, pos=(0, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor=[1.0000, 0.1667, -1.0000],
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor=[1.0000, 0.3333, -1.0000],
         opacity=None, depth=0.0, interpolate=True)
     res_orange_1 = keyboard.Keyboard(deviceName='res_orange_1')
     
