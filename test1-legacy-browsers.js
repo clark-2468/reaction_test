@@ -475,7 +475,7 @@ async function experimentInit() {
   text = new visual.TextStim({
     win: psychoJS.window,
     name: 'text',
-    text: 'Hello\n\nWelcome to the PsychoPy script developed by Eli, for testing average reaction time depending on different colours. I really appreciate your participation as every piece of data contributes to the final conclusion\n\nPress the space bar when you have finished reading',
+    text: 'Hello\n\nWelcome to the PsychoPy script developed by Eli, for testing average reaction time depending on different colours. I really appreciate your participation as every piece of data contributes to the final conclusion\n\nHere is a reminder of the list of things you need to do during the reaction time test\n\npress the space bar on the keyboard as soon as you receive the stimuli. \n\nplace your elbow at 90 degrees to the desk  \n\nuse the index finger of your dominant hand\n\ntake your glasses off if you are wearing them. \n\nPress the space bar when you have finished reading',
     font: 'Open Sans',
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
@@ -491,7 +491,7 @@ async function experimentInit() {
   text_howitworks = new visual.TextStim({
     win: psychoJS.window,
     name: 'text_howitworks',
-    text: 'This test is made of two parts\nVisual and Auditory\n\nThis test aims to test your reaction time. When you hear the sound being played or the image being shown, press the space bar on the keyboard as soon as you can. Do not try to predict the time that the stimulus will start as all stimuli are generated at random timings\n\nPlease move the mouse cursor to the edge of the screen or off screen to reduce interference. If the computer stops working during the test, please tell me\n\nThe first few stimuli will be the test run for you familiarise with this test. The data from those tests will not be included in the analysis. Please use these test runs to adjust the screen so that the circle is at the centre of your field of view, without any distortion.\n\nPress the space bar when you have finished reading\n',
+    text: 'This reaction time test is made of two parts\nVisual and Auditory\n\nThis test aims to test your reaction time. When you hear the sound being played or the image being shown, press the space bar on the keyboard as soon as you can. Do not try to predict the time that the stimulus will start as all stimuli are generated at random timings\n\nPlease move the mouse cursor to the edge of the screen or off screen to reduce interference. If the computer stops working during the test, please tell me\n\nThe first few stimuli will be the test runs for you familiarise with this test. \nPlease adjust the angle of the screen so that the circle is at the centre of your view without any dsitortion of the shape.\n\nPress the space bar when you have finished reading\n',
     font: 'Open Sans',
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
@@ -546,7 +546,7 @@ async function experimentInit() {
     lineWidth: 1.0, 
     colorSpace: 'rgb',
     lineColor: new util.Color('white'),
-    fillColor: new util.Color([0.0, (- 1.0), (- 1.0)]),
+    fillColor: new util.Color([0.0039, (- 1.0), (- 1.0)]),
     opacity: undefined, depth: -1, interpolate: true,
   });
   
@@ -560,7 +560,7 @@ async function experimentInit() {
     lineWidth: 1.0, 
     colorSpace: 'rgb',
     lineColor: new util.Color('white'),
-    fillColor: new util.Color([0.25, (- 1.0), (- 1.0)]),
+    fillColor: new util.Color([0.2471, (- 1.0), (- 1.0)]),
     opacity: undefined, depth: 0, interpolate: true,
   });
   
@@ -944,7 +944,7 @@ async function experimentInit() {
     lineWidth: 1.0, 
     colorSpace: 'rgb',
     lineColor: new util.Color('white'),
-    fillColor: new util.Color([0.0, (- 0.3333), (- 1.0)]),
+    fillColor: new util.Color([0.0, (- 0.4167), (- 1.0)]),
     opacity: undefined, depth: 0, interpolate: true,
   });
   
@@ -960,7 +960,7 @@ async function experimentInit() {
     lineWidth: 1.0, 
     colorSpace: 'rgb',
     lineColor: new util.Color('white'),
-    fillColor: new util.Color([0.25, (- 0.1667), (- 1.0)]),
+    fillColor: new util.Color([0.25, (- 0.2708), (- 1.0)]),
     opacity: undefined, depth: 0, interpolate: true,
   });
   
@@ -976,7 +976,7 @@ async function experimentInit() {
     lineWidth: 1.0, 
     colorSpace: 'rgb',
     lineColor: new util.Color('white'),
-    fillColor: new util.Color([0.5, 0.0, (- 1.0)]),
+    fillColor: new util.Color([0.5, (- 0.125), (- 1.0)]),
     opacity: undefined, depth: 0, interpolate: true,
   });
   
@@ -992,7 +992,7 @@ async function experimentInit() {
     lineWidth: 1.0, 
     colorSpace: 'rgb',
     lineColor: new util.Color('white'),
-    fillColor: new util.Color([0.75, 0.1667, (- 1.0)]),
+    fillColor: new util.Color([0.75, 0.0208, (- 1.0)]),
     opacity: undefined, depth: 0, interpolate: true,
   });
   
@@ -1008,7 +1008,7 @@ async function experimentInit() {
     lineWidth: 1.0, 
     colorSpace: 'rgb',
     lineColor: new util.Color('white'),
-    fillColor: new util.Color([1.0, 0.3333, (- 1.0)]),
+    fillColor: new util.Color([1.0, 0.1667, (- 1.0)]),
     opacity: undefined, depth: 0, interpolate: true,
   });
   
@@ -1301,7 +1301,7 @@ async function experimentInit() {
   text_outro = new visual.TextStim({
     win: psychoJS.window,
     name: 'text_outro',
-    text: 'You have now finished the reaction time test. Remember to start a new session with session number 002 if this is your first session\n\nThank you to your participation in the experiment\n\nPlease do not forget to apply hand sanitiser on the way out\n\nYou may press Esc to end the test',
+    text: 'You have now finished the whole test\n\nThank you to your participation in the experiment\n\nPlease do not forget to apply hand sanitiser on the way out\n\nYou may press Esc to end the test',
     font: 'Open Sans',
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
