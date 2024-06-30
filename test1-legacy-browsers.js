@@ -481,7 +481,7 @@ async function experimentInit() {
   text = new visual.TextStim({
     win: psychoJS.window,
     name: 'text',
-    text: 'Hello\n\nWelcome to the PsychoPy script developed by Eli, for testing average reaction time depending on different colours. I really appreciate your participation as every piece of data contributes to the final conclusion\n\nHere is a reminder of the list of things you need to do during the reaction time test\n\npress the space bar on the keyboard as soon as you receive the stimuli. \n\nplace your elbow at 90 degrees to the desk  \n\nuse the index finger of your dominant hand\n\ntake your glasses off if you are wearing them. \n\nPress the space bar when you have finished reading',
+    text: 'Welcome to the PsychoPy script developed by Eli, for testing average reaction time depending on different colours. I really appreciate your participation as every piece of data contributes to the final conclusion\n\npress the space bar on the keyboard as soon as you receive the stimuli. \nplace your elbow at 90 degrees to the desk  \nuse the index finger of your dominant hand\ntake your glasses off if you are wearing them. \n\nPress the space bar when you have finished reading',
     font: 'Open Sans',
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,

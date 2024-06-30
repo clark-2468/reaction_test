@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.1),
-    on June 30, 2024, at 15:40
+    on June 30, 2024, at 17:16
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -873,7 +873,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "intro" ---
     text = visual.TextStim(win=win, name='text',
-        text='Hello\n\nWelcome to the PsychoPy script developed by Eli, for testing average reaction time depending on different colours. I really appreciate your participation as every piece of data contributes to the final conclusion\n\nHere is a reminder of the list of things you need to do during the reaction time test\n\npress the space bar on the keyboard as soon as you receive the stimuli. \n\nplace your elbow at 90 degrees to the desk  \n\nuse the index finger of your dominant hand\n\ntake your glasses off if you are wearing them. \n\nPress the space bar when you have finished reading',
+        text='Welcome to the PsychoPy script developed by Eli, for testing average reaction time depending on different colours. I really appreciate your participation as every piece of data contributes to the final conclusion\n\npress the space bar on the keyboard as soon as you receive the stimuli. \nplace your elbow at 90 degrees to the desk  \nuse the index finger of your dominant hand\ntake your glasses off if you are wearing them. \n\nPress the space bar when you have finished reading',
         font='Open Sans',
         pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
