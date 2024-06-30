@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.1),
-    on June 20, 2024, at 11:09
+    on June 30, 2024, at 15:19
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -128,7 +128,7 @@ def setupData(expInfo, dataDir=None):
     thisExp = data.ExperimentHandler(
         name=expName, version='',
         extraInfo=expInfo, runtimeInfo=None,
-        originPath='C:\\Users\\Eli L\\Documents\\PsychoPy\\test1_lastrun.py',
+        originPath='E:\\桌面\\CrestAwardProg\\test1_lastrun.py',
         savePickle=True, saveWideText=True,
         dataFileName=dataDir + os.sep + filename, sortColumns='time'
     )
@@ -259,6 +259,12 @@ def setupDevices(expInfo, thisExp, win):
         endhowitworks = deviceManager.addDevice(
             deviceClass='keyboard',
             deviceName='endhowitworks',
+        )
+    if deviceManager.getDevice('endhowitworkspart2') is None:
+        # initialise endhowitworkspart2
+        endhowitworkspart2 = deviceManager.addDevice(
+            deviceClass='keyboard',
+            deviceName='endhowitworkspart2',
         )
     if deviceManager.getDevice('key_resp') is None:
         # initialise key_resp
@@ -877,13 +883,23 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "howitworks" ---
     text_howitworks = visual.TextStim(win=win, name='text_howitworks',
-        text='This reaction time test is made of two parts\nVisual and Auditory\n\nThis test aims to test your reaction time. When you hear the sound being played or the image being shown, press the space bar on the keyboard as soon as you can. Do not try to predict the time that the stimulus will start as all stimuli are generated at random timings\n\nPlease move the mouse cursor to the edge of the screen or off screen to reduce interference. If the computer stops working during the test, please tell me\n\nThe first few stimuli will be the test runs for you familiarise with this test. \nPlease adjust the angle of the screen so that the circle is at the centre of your view without any dsitortion of the shape.\n\nPress the space bar when you have finished reading\n',
+        text='This reaction time test is made of two parts: Visual and Auditory\n\nThis test aims to test your reaction time. When you hear the sound being played or the image being shown, press the space bar on the keyboard as soon as you can. Do not try to predict the time that the stimulus will start as all stimuli are generated at random intervals (between 1.5 to 5 seconds)\n\nPress the space bar when you have finished reading\n',
         font='Open Sans',
         pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
     endhowitworks = keyboard.Keyboard(deviceName='endhowitworks')
+    
+    # --- Initialize components for Routine "howitworkspart2" ---
+    text_2 = visual.TextStim(win=win, name='text_2',
+        text='Please move the mouse cursor to the edge of the screen or off screen to reduce interference. If the computer stops working during the test, please tell me\n\nThe first few stimuli will be the test runs for you familiarise with this test. \nPlease adjust the angle of the screen so that the circle is at the centre of your view without any dsitortion of the shape.',
+        font='Open Sans',
+        pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+        color='white', colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=0.0);
+    endhowitworkspart2 = keyboard.Keyboard(deviceName='endhowitworkspart2')
     
     # --- Initialize components for Routine "test" ---
     testpolygon = visual.ShapeStim(
@@ -1738,6 +1754,122 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # the Routine "howitworks" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
+    # --- Prepare to start Routine "howitworkspart2" ---
+    continueRoutine = True
+    # update component parameters for each repeat
+    thisExp.addData('howitworkspart2.started', globalClock.getTime(format='float'))
+    endhowitworkspart2.keys = []
+    endhowitworkspart2.rt = []
+    _endhowitworkspart2_allKeys = []
+    # keep track of which components have finished
+    howitworkspart2Components = [text_2, endhowitworkspart2]
+    for thisComponent in howitworkspart2Components:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    frameN = -1
+    
+    # --- Run Routine "howitworkspart2" ---
+    routineForceEnded = not continueRoutine
+    while continueRoutine:
+        # get current time
+        t = routineTimer.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # *text_2* updates
+        
+        # if text_2 is starting this frame...
+        if text_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_2.frameNStart = frameN  # exact frame index
+            text_2.tStart = t  # local t and not account for scr refresh
+            text_2.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_2, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'text_2.started')
+            # update status
+            text_2.status = STARTED
+            text_2.setAutoDraw(True)
+        
+        # if text_2 is active this frame...
+        if text_2.status == STARTED:
+            # update params
+            pass
+        
+        # *endhowitworkspart2* updates
+        waitOnFlip = False
+        
+        # if endhowitworkspart2 is starting this frame...
+        if endhowitworkspart2.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+            # keep track of start time/frame for later
+            endhowitworkspart2.frameNStart = frameN  # exact frame index
+            endhowitworkspart2.tStart = t  # local t and not account for scr refresh
+            endhowitworkspart2.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(endhowitworkspart2, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'endhowitworkspart2.started')
+            # update status
+            endhowitworkspart2.status = STARTED
+            # keyboard checking is just starting
+            waitOnFlip = True
+            win.callOnFlip(endhowitworkspart2.clock.reset)  # t=0 on next screen flip
+            win.callOnFlip(endhowitworkspart2.clearEvents, eventType='keyboard')  # clear events on next screen flip
+        if endhowitworkspart2.status == STARTED and not waitOnFlip:
+            theseKeys = endhowitworkspart2.getKeys(keyList=['y','n','left','right','space'], ignoreKeys=["escape"], waitRelease=False)
+            _endhowitworkspart2_allKeys.extend(theseKeys)
+            if len(_endhowitworkspart2_allKeys):
+                endhowitworkspart2.keys = _endhowitworkspart2_allKeys[-1].name  # just the last key pressed
+                endhowitworkspart2.rt = _endhowitworkspart2_allKeys[-1].rt
+                endhowitworkspart2.duration = _endhowitworkspart2_allKeys[-1].duration
+                # a response ends the routine
+                continueRoutine = False
+        
+        # check for quit (typically the Esc key)
+        if defaultKeyboard.getKeys(keyList=["escape"]):
+            thisExp.status = FINISHED
+        if thisExp.status == FINISHED or endExpNow:
+            endExperiment(thisExp, win=win)
+            return
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            routineForceEnded = True
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in howitworkspart2Components:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # --- Ending Routine "howitworkspart2" ---
+    for thisComponent in howitworkspart2Components:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    thisExp.addData('howitworkspart2.stopped', globalClock.getTime(format='float'))
+    # check responses
+    if endhowitworkspart2.keys in ['', [], None]:  # No response was made
+        endhowitworkspart2.keys = None
+    thisExp.addData('endhowitworkspart2.keys',endhowitworkspart2.keys)
+    if endhowitworkspart2.keys != None:  # we had a response
+        thisExp.addData('endhowitworkspart2.rt', endhowitworkspart2.rt)
+        thisExp.addData('endhowitworkspart2.duration', endhowitworkspart2.duration)
+    thisExp.nextEntry()
+    # the Routine "howitworkspart2" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
+    
     # set up handler to look after randomisation of conditions etc
     testloop = data.TrialHandler(nReps=5.0, method='random', 
         extraInfo=expInfo, originPath=-1,
@@ -2039,7 +2171,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_red_0_5 is starting this frame...
-        if res_red_0_5.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_red_0_5.status == NOT_STARTED and tThisFlip >= 1.820-frameTolerance:
             # keep track of start time/frame for later
             res_red_0_5.frameNStart = frameN  # exact frame index
             res_red_0_5.tStart = t  # local t and not account for scr refresh
@@ -2066,7 +2198,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_red_0_5* updates
         
         # if polygon_red_0_5 is starting this frame...
-        if polygon_red_0_5.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_red_0_5.status == NOT_STARTED and tThisFlip >= 1.820-frameTolerance:
             # keep track of start time/frame for later
             polygon_red_0_5.frameNStart = frameN  # exact frame index
             polygon_red_0_5.tStart = t  # local t and not account for scr refresh
@@ -2154,7 +2286,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_red_0_625* updates
         
         # if polygon_red_0_625 is starting this frame...
-        if polygon_red_0_625.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_red_0_625.status == NOT_STARTED and tThisFlip >= 2.643-frameTolerance:
             # keep track of start time/frame for later
             polygon_red_0_625.frameNStart = frameN  # exact frame index
             polygon_red_0_625.tStart = t  # local t and not account for scr refresh
@@ -2175,7 +2307,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_red_0_625 is starting this frame...
-        if res_red_0_625.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_red_0_625.status == NOT_STARTED and tThisFlip >= 2.643-frameTolerance:
             # keep track of start time/frame for later
             res_red_0_625.frameNStart = frameN  # exact frame index
             res_red_0_625.tStart = t  # local t and not account for scr refresh
@@ -2270,7 +2402,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_red_0_75* updates
         
         # if polygon_red_0_75 is starting this frame...
-        if polygon_red_0_75.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_red_0_75.status == NOT_STARTED and tThisFlip >= 4.216-frameTolerance:
             # keep track of start time/frame for later
             polygon_red_0_75.frameNStart = frameN  # exact frame index
             polygon_red_0_75.tStart = t  # local t and not account for scr refresh
@@ -2291,7 +2423,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_red_0_75 is starting this frame...
-        if res_red_0_75.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_red_0_75.status == NOT_STARTED and tThisFlip >= 4.216-frameTolerance:
             # keep track of start time/frame for later
             res_red_0_75.frameNStart = frameN  # exact frame index
             res_red_0_75.tStart = t  # local t and not account for scr refresh
@@ -2386,7 +2518,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_red_0_875* updates
         
         # if polygon_red_0_875 is starting this frame...
-        if polygon_red_0_875.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_red_0_875.status == NOT_STARTED and tThisFlip >= 2.852-frameTolerance:
             # keep track of start time/frame for later
             polygon_red_0_875.frameNStart = frameN  # exact frame index
             polygon_red_0_875.tStart = t  # local t and not account for scr refresh
@@ -2407,7 +2539,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_red_0_875 is starting this frame...
-        if res_red_0_875.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_red_0_875.status == NOT_STARTED and tThisFlip >= 2.852-frameTolerance:
             # keep track of start time/frame for later
             res_red_0_875.frameNStart = frameN  # exact frame index
             res_red_0_875.tStart = t  # local t and not account for scr refresh
@@ -2502,7 +2634,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_red_1* updates
         
         # if polygon_red_1 is starting this frame...
-        if polygon_red_1.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_red_1.status == NOT_STARTED and tThisFlip >= 3.833-frameTolerance:
             # keep track of start time/frame for later
             polygon_red_1.frameNStart = frameN  # exact frame index
             polygon_red_1.tStart = t  # local t and not account for scr refresh
@@ -2523,7 +2655,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_red_1 is starting this frame...
-        if res_red_1.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_red_1.status == NOT_STARTED and tThisFlip >= 3.833-frameTolerance:
             # keep track of start time/frame for later
             res_red_1.frameNStart = frameN  # exact frame index
             res_red_1.tStart = t  # local t and not account for scr refresh
@@ -2618,7 +2750,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_0_5* updates
         
         # if polygon_0_5 is starting this frame...
-        if polygon_0_5.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_0_5.status == NOT_STARTED and tThisFlip >= 2.146-frameTolerance:
             # keep track of start time/frame for later
             polygon_0_5.frameNStart = frameN  # exact frame index
             polygon_0_5.tStart = t  # local t and not account for scr refresh
@@ -2639,7 +2771,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_yellow_0_5 is starting this frame...
-        if res_yellow_0_5.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_yellow_0_5.status == NOT_STARTED and tThisFlip >= 2.146-frameTolerance:
             # keep track of start time/frame for later
             res_yellow_0_5.frameNStart = frameN  # exact frame index
             res_yellow_0_5.tStart = t  # local t and not account for scr refresh
@@ -2734,7 +2866,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_yellow_0_625* updates
         
         # if polygon_yellow_0_625 is starting this frame...
-        if polygon_yellow_0_625.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_yellow_0_625.status == NOT_STARTED and tThisFlip >= 2.561-frameTolerance:
             # keep track of start time/frame for later
             polygon_yellow_0_625.frameNStart = frameN  # exact frame index
             polygon_yellow_0_625.tStart = t  # local t and not account for scr refresh
@@ -2755,7 +2887,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_yellow_0_625 is starting this frame...
-        if res_yellow_0_625.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_yellow_0_625.status == NOT_STARTED and tThisFlip >= 2.561-frameTolerance:
             # keep track of start time/frame for later
             res_yellow_0_625.frameNStart = frameN  # exact frame index
             res_yellow_0_625.tStart = t  # local t and not account for scr refresh
@@ -2850,7 +2982,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_yellow_0_75* updates
         
         # if polygon_yellow_0_75 is starting this frame...
-        if polygon_yellow_0_75.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_yellow_0_75.status == NOT_STARTED and tThisFlip >= 4.516-frameTolerance:
             # keep track of start time/frame for later
             polygon_yellow_0_75.frameNStart = frameN  # exact frame index
             polygon_yellow_0_75.tStart = t  # local t and not account for scr refresh
@@ -2871,7 +3003,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_yellow_0_75 is starting this frame...
-        if res_yellow_0_75.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_yellow_0_75.status == NOT_STARTED and tThisFlip >= 4.516-frameTolerance:
             # keep track of start time/frame for later
             res_yellow_0_75.frameNStart = frameN  # exact frame index
             res_yellow_0_75.tStart = t  # local t and not account for scr refresh
@@ -2966,7 +3098,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_yellow_0_875* updates
         
         # if polygon_yellow_0_875 is starting this frame...
-        if polygon_yellow_0_875.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_yellow_0_875.status == NOT_STARTED and tThisFlip >= 4.434-frameTolerance:
             # keep track of start time/frame for later
             polygon_yellow_0_875.frameNStart = frameN  # exact frame index
             polygon_yellow_0_875.tStart = t  # local t and not account for scr refresh
@@ -2987,7 +3119,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_yellow_0_875 is starting this frame...
-        if res_yellow_0_875.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_yellow_0_875.status == NOT_STARTED and tThisFlip >= 4.434-frameTolerance:
             # keep track of start time/frame for later
             res_yellow_0_875.frameNStart = frameN  # exact frame index
             res_yellow_0_875.tStart = t  # local t and not account for scr refresh
@@ -3082,7 +3214,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_yellow_1* updates
         
         # if polygon_yellow_1 is starting this frame...
-        if polygon_yellow_1.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_yellow_1.status == NOT_STARTED and tThisFlip >= 3.888-frameTolerance:
             # keep track of start time/frame for later
             polygon_yellow_1.frameNStart = frameN  # exact frame index
             polygon_yellow_1.tStart = t  # local t and not account for scr refresh
@@ -3103,7 +3235,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_yellow_1 is starting this frame...
-        if res_yellow_1.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_yellow_1.status == NOT_STARTED and tThisFlip >= 3.888-frameTolerance:
             # keep track of start time/frame for later
             res_yellow_1.frameNStart = frameN  # exact frame index
             res_yellow_1.tStart = t  # local t and not account for scr refresh
@@ -3198,7 +3330,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_blue_0_5* updates
         
         # if polygon_blue_0_5 is starting this frame...
-        if polygon_blue_0_5.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_blue_0_5.status == NOT_STARTED and tThisFlip >= 3.431-frameTolerance:
             # keep track of start time/frame for later
             polygon_blue_0_5.frameNStart = frameN  # exact frame index
             polygon_blue_0_5.tStart = t  # local t and not account for scr refresh
@@ -3219,7 +3351,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_blue_0_5 is starting this frame...
-        if res_blue_0_5.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_blue_0_5.status == NOT_STARTED and tThisFlip >= 3.431-frameTolerance:
             # keep track of start time/frame for later
             res_blue_0_5.frameNStart = frameN  # exact frame index
             res_blue_0_5.tStart = t  # local t and not account for scr refresh
@@ -3314,7 +3446,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_blue_0_625* updates
         
         # if polygon_blue_0_625 is starting this frame...
-        if polygon_blue_0_625.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_blue_0_625.status == NOT_STARTED and tThisFlip >= 2.582-frameTolerance:
             # keep track of start time/frame for later
             polygon_blue_0_625.frameNStart = frameN  # exact frame index
             polygon_blue_0_625.tStart = t  # local t and not account for scr refresh
@@ -3335,7 +3467,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_blue_0_625 is starting this frame...
-        if res_blue_0_625.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_blue_0_625.status == NOT_STARTED and tThisFlip >= 2.582-frameTolerance:
             # keep track of start time/frame for later
             res_blue_0_625.frameNStart = frameN  # exact frame index
             res_blue_0_625.tStart = t  # local t and not account for scr refresh
@@ -3430,7 +3562,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_blue_0_75* updates
         
         # if polygon_blue_0_75 is starting this frame...
-        if polygon_blue_0_75.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_blue_0_75.status == NOT_STARTED and tThisFlip >= 3.355-frameTolerance:
             # keep track of start time/frame for later
             polygon_blue_0_75.frameNStart = frameN  # exact frame index
             polygon_blue_0_75.tStart = t  # local t and not account for scr refresh
@@ -3451,7 +3583,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_blue_0_75 is starting this frame...
-        if res_blue_0_75.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_blue_0_75.status == NOT_STARTED and tThisFlip >= 3.355-frameTolerance:
             # keep track of start time/frame for later
             res_blue_0_75.frameNStart = frameN  # exact frame index
             res_blue_0_75.tStart = t  # local t and not account for scr refresh
@@ -3546,7 +3678,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_blue_0_875* updates
         
         # if polygon_blue_0_875 is starting this frame...
-        if polygon_blue_0_875.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_blue_0_875.status == NOT_STARTED and tThisFlip >= 2.157-frameTolerance:
             # keep track of start time/frame for later
             polygon_blue_0_875.frameNStart = frameN  # exact frame index
             polygon_blue_0_875.tStart = t  # local t and not account for scr refresh
@@ -3567,7 +3699,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_blue_0_875 is starting this frame...
-        if res_blue_0_875.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_blue_0_875.status == NOT_STARTED and tThisFlip >= 2.157-frameTolerance:
             # keep track of start time/frame for later
             res_blue_0_875.frameNStart = frameN  # exact frame index
             res_blue_0_875.tStart = t  # local t and not account for scr refresh
@@ -3662,7 +3794,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_blue_1* updates
         
         # if polygon_blue_1 is starting this frame...
-        if polygon_blue_1.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_blue_1.status == NOT_STARTED and tThisFlip >= 2.951-frameTolerance:
             # keep track of start time/frame for later
             polygon_blue_1.frameNStart = frameN  # exact frame index
             polygon_blue_1.tStart = t  # local t and not account for scr refresh
@@ -3683,7 +3815,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_blue_1 is starting this frame...
-        if res_blue_1.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_blue_1.status == NOT_STARTED and tThisFlip >= 2.951-frameTolerance:
             # keep track of start time/frame for later
             res_blue_1.frameNStart = frameN  # exact frame index
             res_blue_1.tStart = t  # local t and not account for scr refresh
@@ -3778,7 +3910,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_green_0_5* updates
         
         # if polygon_green_0_5 is starting this frame...
-        if polygon_green_0_5.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_green_0_5.status == NOT_STARTED and tThisFlip >= 3.181-frameTolerance:
             # keep track of start time/frame for later
             polygon_green_0_5.frameNStart = frameN  # exact frame index
             polygon_green_0_5.tStart = t  # local t and not account for scr refresh
@@ -3799,7 +3931,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_green_0_5 is starting this frame...
-        if res_green_0_5.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_green_0_5.status == NOT_STARTED and tThisFlip >= 3.181-frameTolerance:
             # keep track of start time/frame for later
             res_green_0_5.frameNStart = frameN  # exact frame index
             res_green_0_5.tStart = t  # local t and not account for scr refresh
@@ -3894,7 +4026,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_green_0_625* updates
         
         # if polygon_green_0_625 is starting this frame...
-        if polygon_green_0_625.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_green_0_625.status == NOT_STARTED and tThisFlip >= 2.537-frameTolerance:
             # keep track of start time/frame for later
             polygon_green_0_625.frameNStart = frameN  # exact frame index
             polygon_green_0_625.tStart = t  # local t and not account for scr refresh
@@ -3915,7 +4047,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_green_0_625 is starting this frame...
-        if res_green_0_625.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_green_0_625.status == NOT_STARTED and tThisFlip >= 2.537-frameTolerance:
             # keep track of start time/frame for later
             res_green_0_625.frameNStart = frameN  # exact frame index
             res_green_0_625.tStart = t  # local t and not account for scr refresh
@@ -4010,7 +4142,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_green_0_75* updates
         
         # if polygon_green_0_75 is starting this frame...
-        if polygon_green_0_75.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_green_0_75.status == NOT_STARTED and tThisFlip >= 3.089-frameTolerance:
             # keep track of start time/frame for later
             polygon_green_0_75.frameNStart = frameN  # exact frame index
             polygon_green_0_75.tStart = t  # local t and not account for scr refresh
@@ -4031,7 +4163,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_green_0_75 is starting this frame...
-        if res_green_0_75.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_green_0_75.status == NOT_STARTED and tThisFlip >= 3.089-frameTolerance:
             # keep track of start time/frame for later
             res_green_0_75.frameNStart = frameN  # exact frame index
             res_green_0_75.tStart = t  # local t and not account for scr refresh
@@ -4126,7 +4258,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_green_0_875* updates
         
         # if polygon_green_0_875 is starting this frame...
-        if polygon_green_0_875.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_green_0_875.status == NOT_STARTED and tThisFlip >= 3.958-frameTolerance:
             # keep track of start time/frame for later
             polygon_green_0_875.frameNStart = frameN  # exact frame index
             polygon_green_0_875.tStart = t  # local t and not account for scr refresh
@@ -4143,11 +4275,25 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # update params
             pass
         
+        # if polygon_green_0_875 is stopping this frame...
+        if polygon_green_0_875.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > polygon_green_0_875.tStartRefresh + 3.958-frameTolerance:
+                # keep track of stop time/frame for later
+                polygon_green_0_875.tStop = t  # not accounting for scr refresh
+                polygon_green_0_875.tStopRefresh = tThisFlipGlobal  # on global time
+                polygon_green_0_875.frameNStop = frameN  # exact frame index
+                # add timestamp to datafile
+                thisExp.timestampOnFlip(win, 'polygon_green_0_875.stopped')
+                # update status
+                polygon_green_0_875.status = FINISHED
+                polygon_green_0_875.setAutoDraw(False)
+        
         # *res_green_0_875* updates
         waitOnFlip = False
         
         # if res_green_0_875 is starting this frame...
-        if res_green_0_875.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_green_0_875.status == NOT_STARTED and tThisFlip >= 3.958-frameTolerance:
             # keep track of start time/frame for later
             res_green_0_875.frameNStart = frameN  # exact frame index
             res_green_0_875.tStart = t  # local t and not account for scr refresh
@@ -4242,7 +4388,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_green_1* updates
         
         # if polygon_green_1 is starting this frame...
-        if polygon_green_1.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_green_1.status == NOT_STARTED and tThisFlip >= 4.208-frameTolerance:
             # keep track of start time/frame for later
             polygon_green_1.frameNStart = frameN  # exact frame index
             polygon_green_1.tStart = t  # local t and not account for scr refresh
@@ -4263,7 +4409,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_green_1 is starting this frame...
-        if res_green_1.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_green_1.status == NOT_STARTED and tThisFlip >= 4.208-frameTolerance:
             # keep track of start time/frame for later
             res_green_1.frameNStart = frameN  # exact frame index
             res_green_1.tStart = t  # local t and not account for scr refresh
@@ -4358,7 +4504,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_purple_0_5* updates
         
         # if polygon_purple_0_5 is starting this frame...
-        if polygon_purple_0_5.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_purple_0_5.status == NOT_STARTED and tThisFlip >= 1.525-frameTolerance:
             # keep track of start time/frame for later
             polygon_purple_0_5.frameNStart = frameN  # exact frame index
             polygon_purple_0_5.tStart = t  # local t and not account for scr refresh
@@ -4379,7 +4525,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_purple_0_5 is starting this frame...
-        if res_purple_0_5.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_purple_0_5.status == NOT_STARTED and tThisFlip >= 1.525-frameTolerance:
             # keep track of start time/frame for later
             res_purple_0_5.frameNStart = frameN  # exact frame index
             res_purple_0_5.tStart = t  # local t and not account for scr refresh
@@ -4474,7 +4620,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_purple_0_625* updates
         
         # if polygon_purple_0_625 is starting this frame...
-        if polygon_purple_0_625.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_purple_0_625.status == NOT_STARTED and tThisFlip >= 4.054-frameTolerance:
             # keep track of start time/frame for later
             polygon_purple_0_625.frameNStart = frameN  # exact frame index
             polygon_purple_0_625.tStart = t  # local t and not account for scr refresh
@@ -4495,7 +4641,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_purple_0_625 is starting this frame...
-        if res_purple_0_625.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_purple_0_625.status == NOT_STARTED and tThisFlip >= 4.054-frameTolerance:
             # keep track of start time/frame for later
             res_purple_0_625.frameNStart = frameN  # exact frame index
             res_purple_0_625.tStart = t  # local t and not account for scr refresh
@@ -4590,7 +4736,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_purple_0_75* updates
         
         # if polygon_purple_0_75 is starting this frame...
-        if polygon_purple_0_75.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_purple_0_75.status == NOT_STARTED and tThisFlip >= 2.198-frameTolerance:
             # keep track of start time/frame for later
             polygon_purple_0_75.frameNStart = frameN  # exact frame index
             polygon_purple_0_75.tStart = t  # local t and not account for scr refresh
@@ -4611,7 +4757,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_purple_0_75 is starting this frame...
-        if res_purple_0_75.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_purple_0_75.status == NOT_STARTED and tThisFlip >= 2.198-frameTolerance:
             # keep track of start time/frame for later
             res_purple_0_75.frameNStart = frameN  # exact frame index
             res_purple_0_75.tStart = t  # local t and not account for scr refresh
@@ -4706,7 +4852,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_purple_0_875* updates
         
         # if polygon_purple_0_875 is starting this frame...
-        if polygon_purple_0_875.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_purple_0_875.status == NOT_STARTED and tThisFlip >= 2.510-frameTolerance:
             # keep track of start time/frame for later
             polygon_purple_0_875.frameNStart = frameN  # exact frame index
             polygon_purple_0_875.tStart = t  # local t and not account for scr refresh
@@ -4727,7 +4873,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_purple_0_875 is starting this frame...
-        if res_purple_0_875.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_purple_0_875.status == NOT_STARTED and tThisFlip >= 2.510-frameTolerance:
             # keep track of start time/frame for later
             res_purple_0_875.frameNStart = frameN  # exact frame index
             res_purple_0_875.tStart = t  # local t and not account for scr refresh
@@ -4822,7 +4968,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_purple_1* updates
         
         # if polygon_purple_1 is starting this frame...
-        if polygon_purple_1.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_purple_1.status == NOT_STARTED and tThisFlip >= 3.169-frameTolerance:
             # keep track of start time/frame for later
             polygon_purple_1.frameNStart = frameN  # exact frame index
             polygon_purple_1.tStart = t  # local t and not account for scr refresh
@@ -4843,7 +4989,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_purple_1 is starting this frame...
-        if res_purple_1.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_purple_1.status == NOT_STARTED and tThisFlip >= 3.169-frameTolerance:
             # keep track of start time/frame for later
             res_purple_1.frameNStart = frameN  # exact frame index
             res_purple_1.tStart = t  # local t and not account for scr refresh
@@ -4938,7 +5084,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_orange_0_5* updates
         
         # if polygon_orange_0_5 is starting this frame...
-        if polygon_orange_0_5.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_orange_0_5.status == NOT_STARTED and tThisFlip >= 3.946-frameTolerance:
             # keep track of start time/frame for later
             polygon_orange_0_5.frameNStart = frameN  # exact frame index
             polygon_orange_0_5.tStart = t  # local t and not account for scr refresh
@@ -4959,7 +5105,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_orange_0_5 is starting this frame...
-        if res_orange_0_5.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_orange_0_5.status == NOT_STARTED and tThisFlip >= 3.946-frameTolerance:
             # keep track of start time/frame for later
             res_orange_0_5.frameNStart = frameN  # exact frame index
             res_orange_0_5.tStart = t  # local t and not account for scr refresh
@@ -5054,7 +5200,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_orange_0_625* updates
         
         # if polygon_orange_0_625 is starting this frame...
-        if polygon_orange_0_625.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_orange_0_625.status == NOT_STARTED and tThisFlip >= 1.870-frameTolerance:
             # keep track of start time/frame for later
             polygon_orange_0_625.frameNStart = frameN  # exact frame index
             polygon_orange_0_625.tStart = t  # local t and not account for scr refresh
@@ -5075,7 +5221,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_orange_0_625 is starting this frame...
-        if res_orange_0_625.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_orange_0_625.status == NOT_STARTED and tThisFlip >= 1.870-frameTolerance:
             # keep track of start time/frame for later
             res_orange_0_625.frameNStart = frameN  # exact frame index
             res_orange_0_625.tStart = t  # local t and not account for scr refresh
@@ -5170,7 +5316,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_orange_0_75* updates
         
         # if polygon_orange_0_75 is starting this frame...
-        if polygon_orange_0_75.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_orange_0_75.status == NOT_STARTED and tThisFlip >= 2.143-frameTolerance:
             # keep track of start time/frame for later
             polygon_orange_0_75.frameNStart = frameN  # exact frame index
             polygon_orange_0_75.tStart = t  # local t and not account for scr refresh
@@ -5191,7 +5337,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_orange_0_75 is starting this frame...
-        if res_orange_0_75.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_orange_0_75.status == NOT_STARTED and tThisFlip >= 2.143-frameTolerance:
             # keep track of start time/frame for later
             res_orange_0_75.frameNStart = frameN  # exact frame index
             res_orange_0_75.tStart = t  # local t and not account for scr refresh
@@ -5286,7 +5432,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_res_0_875* updates
         
         # if polygon_res_0_875 is starting this frame...
-        if polygon_res_0_875.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_res_0_875.status == NOT_STARTED and tThisFlip >= 1.817-frameTolerance:
             # keep track of start time/frame for later
             polygon_res_0_875.frameNStart = frameN  # exact frame index
             polygon_res_0_875.tStart = t  # local t and not account for scr refresh
@@ -5307,7 +5453,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_orange_0_875 is starting this frame...
-        if res_orange_0_875.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_orange_0_875.status == NOT_STARTED and tThisFlip >= 1.817-frameTolerance:
             # keep track of start time/frame for later
             res_orange_0_875.frameNStart = frameN  # exact frame index
             res_orange_0_875.tStart = t  # local t and not account for scr refresh
@@ -5402,7 +5548,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *polygon_orange_1* updates
         
         # if polygon_orange_1 is starting this frame...
-        if polygon_orange_1.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if polygon_orange_1.status == NOT_STARTED and tThisFlip >= 4.991-frameTolerance:
             # keep track of start time/frame for later
             polygon_orange_1.frameNStart = frameN  # exact frame index
             polygon_orange_1.tStart = t  # local t and not account for scr refresh
@@ -5423,7 +5569,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_orange_1 is starting this frame...
-        if res_orange_1.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_orange_1.status == NOT_STARTED and tThisFlip >= 4.991-frameTolerance:
             # keep track of start time/frame for later
             res_orange_1.frameNStart = frameN  # exact frame index
             res_orange_1.tStart = t  # local t and not account for scr refresh
@@ -5902,7 +6048,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update/draw components on each frame
         
         # if sound_500Hz_0_25 is starting this frame...
-        if sound_500Hz_0_25.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if sound_500Hz_0_25.status == NOT_STARTED and tThisFlip >= 3.567-frameTolerance:
             # keep track of start time/frame for later
             sound_500Hz_0_25.frameNStart = frameN  # exact frame index
             sound_500Hz_0_25.tStart = t  # local t and not account for scr refresh
@@ -5922,7 +6068,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_500Hz_0_25 is starting this frame...
-        if res_500Hz_0_25.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_500Hz_0_25.status == NOT_STARTED and tThisFlip >= 3.567-frameTolerance:
             # keep track of start time/frame for later
             res_500Hz_0_25.frameNStart = frameN  # exact frame index
             res_500Hz_0_25.tStart = t  # local t and not account for scr refresh
@@ -6019,7 +6165,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update/draw components on each frame
         
         # if sound_500Hz_0_5 is starting this frame...
-        if sound_500Hz_0_5.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if sound_500Hz_0_5.status == NOT_STARTED and tThisFlip >= 3.385-frameTolerance:
             # keep track of start time/frame for later
             sound_500Hz_0_5.frameNStart = frameN  # exact frame index
             sound_500Hz_0_5.tStart = t  # local t and not account for scr refresh
@@ -6039,7 +6185,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_500Hz_0_5 is starting this frame...
-        if res_500Hz_0_5.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_500Hz_0_5.status == NOT_STARTED and tThisFlip >= 3.385-frameTolerance:
             # keep track of start time/frame for later
             res_500Hz_0_5.frameNStart = frameN  # exact frame index
             res_500Hz_0_5.tStart = t  # local t and not account for scr refresh
@@ -6136,7 +6282,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update/draw components on each frame
         
         # if sound_500Hz_0_75 is starting this frame...
-        if sound_500Hz_0_75.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if sound_500Hz_0_75.status == NOT_STARTED and tThisFlip >= 3.149-frameTolerance:
             # keep track of start time/frame for later
             sound_500Hz_0_75.frameNStart = frameN  # exact frame index
             sound_500Hz_0_75.tStart = t  # local t and not account for scr refresh
@@ -6156,7 +6302,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_500Hz_0_75 is starting this frame...
-        if res_500Hz_0_75.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_500Hz_0_75.status == NOT_STARTED and tThisFlip >= 3.149-frameTolerance:
             # keep track of start time/frame for later
             res_500Hz_0_75.frameNStart = frameN  # exact frame index
             res_500Hz_0_75.tStart = t  # local t and not account for scr refresh
@@ -6253,7 +6399,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update/draw components on each frame
         
         # if sound_500Hz is starting this frame...
-        if sound_500Hz.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if sound_500Hz.status == NOT_STARTED and tThisFlip >= 3.529-frameTolerance:
             # keep track of start time/frame for later
             sound_500Hz.frameNStart = frameN  # exact frame index
             sound_500Hz.tStart = t  # local t and not account for scr refresh
@@ -6273,7 +6419,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_500Hz is starting this frame...
-        if res_500Hz.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_500Hz.status == NOT_STARTED and tThisFlip >= 3.529-frameTolerance:
             # keep track of start time/frame for later
             res_500Hz.frameNStart = frameN  # exact frame index
             res_500Hz.tStart = t  # local t and not account for scr refresh
@@ -6370,7 +6516,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update/draw components on each frame
         
         # if sound_2500Hz_0_25 is starting this frame...
-        if sound_2500Hz_0_25.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if sound_2500Hz_0_25.status == NOT_STARTED and tThisFlip >= 3.878-frameTolerance:
             # keep track of start time/frame for later
             sound_2500Hz_0_25.frameNStart = frameN  # exact frame index
             sound_2500Hz_0_25.tStart = t  # local t and not account for scr refresh
@@ -6390,7 +6536,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_2500Hz_0_25 is starting this frame...
-        if res_2500Hz_0_25.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_2500Hz_0_25.status == NOT_STARTED and tThisFlip >= 3.878-frameTolerance:
             # keep track of start time/frame for later
             res_2500Hz_0_25.frameNStart = frameN  # exact frame index
             res_2500Hz_0_25.tStart = t  # local t and not account for scr refresh
@@ -6487,7 +6633,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update/draw components on each frame
         
         # if sound_2500Hz_0_5 is starting this frame...
-        if sound_2500Hz_0_5.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if sound_2500Hz_0_5.status == NOT_STARTED and tThisFlip >= 1.277-frameTolerance:
             # keep track of start time/frame for later
             sound_2500Hz_0_5.frameNStart = frameN  # exact frame index
             sound_2500Hz_0_5.tStart = t  # local t and not account for scr refresh
@@ -6507,7 +6653,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_2500Hz_0_5 is starting this frame...
-        if res_2500Hz_0_5.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_2500Hz_0_5.status == NOT_STARTED and tThisFlip >= 1.277-frameTolerance:
             # keep track of start time/frame for later
             res_2500Hz_0_5.frameNStart = frameN  # exact frame index
             res_2500Hz_0_5.tStart = t  # local t and not account for scr refresh
@@ -6604,7 +6750,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update/draw components on each frame
         
         # if sound_2500Hz_0_75 is starting this frame...
-        if sound_2500Hz_0_75.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if sound_2500Hz_0_75.status == NOT_STARTED and tThisFlip >= 2.038-frameTolerance:
             # keep track of start time/frame for later
             sound_2500Hz_0_75.frameNStart = frameN  # exact frame index
             sound_2500Hz_0_75.tStart = t  # local t and not account for scr refresh
@@ -6624,7 +6770,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_2500Hz_0_75 is starting this frame...
-        if res_2500Hz_0_75.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_2500Hz_0_75.status == NOT_STARTED and tThisFlip >= 2.038-frameTolerance:
             # keep track of start time/frame for later
             res_2500Hz_0_75.frameNStart = frameN  # exact frame index
             res_2500Hz_0_75.tStart = t  # local t and not account for scr refresh
@@ -6721,7 +6867,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update/draw components on each frame
         
         # if sound_2500Hz is starting this frame...
-        if sound_2500Hz.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if sound_2500Hz.status == NOT_STARTED and tThisFlip >= 2.456-frameTolerance:
             # keep track of start time/frame for later
             sound_2500Hz.frameNStart = frameN  # exact frame index
             sound_2500Hz.tStart = t  # local t and not account for scr refresh
@@ -6741,7 +6887,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_2500Hz is starting this frame...
-        if res_2500Hz.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_2500Hz.status == NOT_STARTED and tThisFlip >= 2.456-frameTolerance:
             # keep track of start time/frame for later
             res_2500Hz.frameNStart = frameN  # exact frame index
             res_2500Hz.tStart = t  # local t and not account for scr refresh
@@ -6838,7 +6984,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update/draw components on each frame
         
         # if sound_5000Hz_0_25 is starting this frame...
-        if sound_5000Hz_0_25.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if sound_5000Hz_0_25.status == NOT_STARTED and tThisFlip >= 4.159-frameTolerance:
             # keep track of start time/frame for later
             sound_5000Hz_0_25.frameNStart = frameN  # exact frame index
             sound_5000Hz_0_25.tStart = t  # local t and not account for scr refresh
@@ -6858,7 +7004,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_5000Hz_0_25 is starting this frame...
-        if res_5000Hz_0_25.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_5000Hz_0_25.status == NOT_STARTED and tThisFlip >= 4.159-frameTolerance:
             # keep track of start time/frame for later
             res_5000Hz_0_25.frameNStart = frameN  # exact frame index
             res_5000Hz_0_25.tStart = t  # local t and not account for scr refresh
@@ -6955,7 +7101,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update/draw components on each frame
         
         # if sound_5000Hz_0_5 is starting this frame...
-        if sound_5000Hz_0_5.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if sound_5000Hz_0_5.status == NOT_STARTED and tThisFlip >= 2.639-frameTolerance:
             # keep track of start time/frame for later
             sound_5000Hz_0_5.frameNStart = frameN  # exact frame index
             sound_5000Hz_0_5.tStart = t  # local t and not account for scr refresh
@@ -6975,7 +7121,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_5000Hz_0_5 is starting this frame...
-        if res_5000Hz_0_5.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_5000Hz_0_5.status == NOT_STARTED and tThisFlip >= 2.639-frameTolerance:
             # keep track of start time/frame for later
             res_5000Hz_0_5.frameNStart = frameN  # exact frame index
             res_5000Hz_0_5.tStart = t  # local t and not account for scr refresh
@@ -7072,7 +7218,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update/draw components on each frame
         
         # if sound_5000Hz_0_75 is starting this frame...
-        if sound_5000Hz_0_75.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if sound_5000Hz_0_75.status == NOT_STARTED and tThisFlip >= 2.665-frameTolerance:
             # keep track of start time/frame for later
             sound_5000Hz_0_75.frameNStart = frameN  # exact frame index
             sound_5000Hz_0_75.tStart = t  # local t and not account for scr refresh
@@ -7092,7 +7238,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_5000Hz_0_75 is starting this frame...
-        if res_5000Hz_0_75.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_5000Hz_0_75.status == NOT_STARTED and tThisFlip >= 2.665-frameTolerance:
             # keep track of start time/frame for later
             res_5000Hz_0_75.frameNStart = frameN  # exact frame index
             res_5000Hz_0_75.tStart = t  # local t and not account for scr refresh
@@ -7189,7 +7335,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update/draw components on each frame
         
         # if sound_5000Hz is starting this frame...
-        if sound_5000Hz.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if sound_5000Hz.status == NOT_STARTED and tThisFlip >= 2.303-frameTolerance:
             # keep track of start time/frame for later
             sound_5000Hz.frameNStart = frameN  # exact frame index
             sound_5000Hz.tStart = t  # local t and not account for scr refresh
@@ -7209,7 +7355,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_5000Hz is starting this frame...
-        if res_5000Hz.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_5000Hz.status == NOT_STARTED and tThisFlip >= 2.303-frameTolerance:
             # keep track of start time/frame for later
             res_5000Hz.frameNStart = frameN  # exact frame index
             res_5000Hz.tStart = t  # local t and not account for scr refresh
@@ -7306,7 +7452,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update/draw components on each frame
         
         # if sound_7500Hz_0_25 is starting this frame...
-        if sound_7500Hz_0_25.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if sound_7500Hz_0_25.status == NOT_STARTED and tThisFlip >= 1.433-frameTolerance:
             # keep track of start time/frame for later
             sound_7500Hz_0_25.frameNStart = frameN  # exact frame index
             sound_7500Hz_0_25.tStart = t  # local t and not account for scr refresh
@@ -7326,7 +7472,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_7500Hz_0_25 is starting this frame...
-        if res_7500Hz_0_25.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_7500Hz_0_25.status == NOT_STARTED and tThisFlip >= 1.433-frameTolerance:
             # keep track of start time/frame for later
             res_7500Hz_0_25.frameNStart = frameN  # exact frame index
             res_7500Hz_0_25.tStart = t  # local t and not account for scr refresh
@@ -7423,7 +7569,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update/draw components on each frame
         
         # if sound_7500Hz_0_5 is starting this frame...
-        if sound_7500Hz_0_5.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if sound_7500Hz_0_5.status == NOT_STARTED and tThisFlip >= 3.199-frameTolerance:
             # keep track of start time/frame for later
             sound_7500Hz_0_5.frameNStart = frameN  # exact frame index
             sound_7500Hz_0_5.tStart = t  # local t and not account for scr refresh
@@ -7443,7 +7589,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_7500Hz_0_5 is starting this frame...
-        if res_7500Hz_0_5.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_7500Hz_0_5.status == NOT_STARTED and tThisFlip >= 3.199-frameTolerance:
             # keep track of start time/frame for later
             res_7500Hz_0_5.frameNStart = frameN  # exact frame index
             res_7500Hz_0_5.tStart = t  # local t and not account for scr refresh
@@ -7540,7 +7686,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update/draw components on each frame
         
         # if sound_7500Hz_0_75 is starting this frame...
-        if sound_7500Hz_0_75.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if sound_7500Hz_0_75.status == NOT_STARTED and tThisFlip >= 2.519-frameTolerance:
             # keep track of start time/frame for later
             sound_7500Hz_0_75.frameNStart = frameN  # exact frame index
             sound_7500Hz_0_75.tStart = t  # local t and not account for scr refresh
@@ -7560,7 +7706,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_7500Hz_0_75 is starting this frame...
-        if res_7500Hz_0_75.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_7500Hz_0_75.status == NOT_STARTED and tThisFlip >= 2.519-frameTolerance:
             # keep track of start time/frame for later
             res_7500Hz_0_75.frameNStart = frameN  # exact frame index
             res_7500Hz_0_75.tStart = t  # local t and not account for scr refresh
@@ -7657,7 +7803,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update/draw components on each frame
         
         # if sound_7500Hz is starting this frame...
-        if sound_7500Hz.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if sound_7500Hz.status == NOT_STARTED and tThisFlip >= 2.238-frameTolerance:
             # keep track of start time/frame for later
             sound_7500Hz.frameNStart = frameN  # exact frame index
             sound_7500Hz.tStart = t  # local t and not account for scr refresh
@@ -7677,7 +7823,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_7500Hz is starting this frame...
-        if res_7500Hz.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_7500Hz.status == NOT_STARTED and tThisFlip >= 2.238-frameTolerance:
             # keep track of start time/frame for later
             res_7500Hz.frameNStart = frameN  # exact frame index
             res_7500Hz.tStart = t  # local t and not account for scr refresh
@@ -7774,7 +7920,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update/draw components on each frame
         
         # if sound_10000Hz_0_25 is starting this frame...
-        if sound_10000Hz_0_25.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if sound_10000Hz_0_25.status == NOT_STARTED and tThisFlip >= 3.286-frameTolerance:
             # keep track of start time/frame for later
             sound_10000Hz_0_25.frameNStart = frameN  # exact frame index
             sound_10000Hz_0_25.tStart = t  # local t and not account for scr refresh
@@ -7794,7 +7940,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_10000Hz_0_25 is starting this frame...
-        if res_10000Hz_0_25.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_10000Hz_0_25.status == NOT_STARTED and tThisFlip >= 3.286-frameTolerance:
             # keep track of start time/frame for later
             res_10000Hz_0_25.frameNStart = frameN  # exact frame index
             res_10000Hz_0_25.tStart = t  # local t and not account for scr refresh
@@ -7891,7 +8037,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update/draw components on each frame
         
         # if sound_10000Hz_0_5 is starting this frame...
-        if sound_10000Hz_0_5.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if sound_10000Hz_0_5.status == NOT_STARTED and tThisFlip >= 4.389-frameTolerance:
             # keep track of start time/frame for later
             sound_10000Hz_0_5.frameNStart = frameN  # exact frame index
             sound_10000Hz_0_5.tStart = t  # local t and not account for scr refresh
@@ -7911,7 +8057,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_10000Hz_0_5 is starting this frame...
-        if res_10000Hz_0_5.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_10000Hz_0_5.status == NOT_STARTED and tThisFlip >= 4.389-frameTolerance:
             # keep track of start time/frame for later
             res_10000Hz_0_5.frameNStart = frameN  # exact frame index
             res_10000Hz_0_5.tStart = t  # local t and not account for scr refresh
@@ -8008,7 +8154,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update/draw components on each frame
         
         # if sound_10000Hz_0_75 is starting this frame...
-        if sound_10000Hz_0_75.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if sound_10000Hz_0_75.status == NOT_STARTED and tThisFlip >= 2.457-frameTolerance:
             # keep track of start time/frame for later
             sound_10000Hz_0_75.frameNStart = frameN  # exact frame index
             sound_10000Hz_0_75.tStart = t  # local t and not account for scr refresh
@@ -8028,7 +8174,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_10000Hz_0_75 is starting this frame...
-        if res_10000Hz_0_75.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_10000Hz_0_75.status == NOT_STARTED and tThisFlip >= 2.457-frameTolerance:
             # keep track of start time/frame for later
             res_10000Hz_0_75.frameNStart = frameN  # exact frame index
             res_10000Hz_0_75.tStart = t  # local t and not account for scr refresh
@@ -8125,7 +8271,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update/draw components on each frame
         
         # if sound_10000Hz is starting this frame...
-        if sound_10000Hz.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if sound_10000Hz.status == NOT_STARTED and tThisFlip >= 4.798-frameTolerance:
             # keep track of start time/frame for later
             sound_10000Hz.frameNStart = frameN  # exact frame index
             sound_10000Hz.tStart = t  # local t and not account for scr refresh
@@ -8145,7 +8291,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_10000Hz is starting this frame...
-        if res_10000Hz.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_10000Hz.status == NOT_STARTED and tThisFlip >= 4.798-frameTolerance:
             # keep track of start time/frame for later
             res_10000Hz.frameNStart = frameN  # exact frame index
             res_10000Hz.tStart = t  # local t and not account for scr refresh
@@ -8242,7 +8388,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update/draw components on each frame
         
         # if sound_12500Hz_0_25 is starting this frame...
-        if sound_12500Hz_0_25.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if sound_12500Hz_0_25.status == NOT_STARTED and tThisFlip >= 3.525-frameTolerance:
             # keep track of start time/frame for later
             sound_12500Hz_0_25.frameNStart = frameN  # exact frame index
             sound_12500Hz_0_25.tStart = t  # local t and not account for scr refresh
@@ -8262,7 +8408,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_12500Hz_0_25 is starting this frame...
-        if res_12500Hz_0_25.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_12500Hz_0_25.status == NOT_STARTED and tThisFlip >= 3.525-frameTolerance:
             # keep track of start time/frame for later
             res_12500Hz_0_25.frameNStart = frameN  # exact frame index
             res_12500Hz_0_25.tStart = t  # local t and not account for scr refresh
@@ -8359,7 +8505,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update/draw components on each frame
         
         # if sound_12500Hz_0_5 is starting this frame...
-        if sound_12500Hz_0_5.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if sound_12500Hz_0_5.status == NOT_STARTED and tThisFlip >= 4.385-frameTolerance:
             # keep track of start time/frame for later
             sound_12500Hz_0_5.frameNStart = frameN  # exact frame index
             sound_12500Hz_0_5.tStart = t  # local t and not account for scr refresh
@@ -8379,7 +8525,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_12500Hz_0_5 is starting this frame...
-        if res_12500Hz_0_5.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_12500Hz_0_5.status == NOT_STARTED and tThisFlip >= 4.385-frameTolerance:
             # keep track of start time/frame for later
             res_12500Hz_0_5.frameNStart = frameN  # exact frame index
             res_12500Hz_0_5.tStart = t  # local t and not account for scr refresh
@@ -8476,7 +8622,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update/draw components on each frame
         
         # if sound_12500Hz_0_75 is starting this frame...
-        if sound_12500Hz_0_75.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if sound_12500Hz_0_75.status == NOT_STARTED and tThisFlip >= 2.723-frameTolerance:
             # keep track of start time/frame for later
             sound_12500Hz_0_75.frameNStart = frameN  # exact frame index
             sound_12500Hz_0_75.tStart = t  # local t and not account for scr refresh
@@ -8496,7 +8642,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_12500Hz_0_75 is starting this frame...
-        if res_12500Hz_0_75.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_12500Hz_0_75.status == NOT_STARTED and tThisFlip >= 2.723-frameTolerance:
             # keep track of start time/frame for later
             res_12500Hz_0_75.frameNStart = frameN  # exact frame index
             res_12500Hz_0_75.tStart = t  # local t and not account for scr refresh
@@ -8593,7 +8739,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update/draw components on each frame
         
         # if sound_12500 is starting this frame...
-        if sound_12500.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if sound_12500.status == NOT_STARTED and tThisFlip >= 1.438-frameTolerance:
             # keep track of start time/frame for later
             sound_12500.frameNStart = frameN  # exact frame index
             sound_12500.tStart = t  # local t and not account for scr refresh
@@ -8613,7 +8759,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         waitOnFlip = False
         
         # if res_12500 is starting this frame...
-        if res_12500.status == NOT_STARTED and tThisFlip >= 2-frameTolerance:
+        if res_12500.status == NOT_STARTED and tThisFlip >= 1.438-frameTolerance:
             # keep track of start time/frame for later
             res_12500.frameNStart = frameN  # exact frame index
             res_12500.tStart = t  # local t and not account for scr refresh
