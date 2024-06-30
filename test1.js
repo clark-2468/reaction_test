@@ -52,6 +52,9 @@ flowScheduler.add(introRoutineEnd());
 flowScheduler.add(howitworksRoutineBegin());
 flowScheduler.add(howitworksRoutineEachFrame());
 flowScheduler.add(howitworksRoutineEnd());
+flowScheduler.add(howitworkspart2RoutineBegin());
+flowScheduler.add(howitworkspart2RoutineEachFrame());
+flowScheduler.add(howitworkspart2RoutineEnd());
 const testloopLoopScheduler = new Scheduler(psychoJS);
 flowScheduler.add(testloopLoopBegin(testloopLoopScheduler));
 flowScheduler.add(testloopLoopScheduler);
@@ -296,6 +299,9 @@ var res_intro;
 var howitworksClock;
 var text_howitworks;
 var endhowitworks;
+var howitworkspart2Clock;
+var text_2;
+var endhowitworkspart2;
 var testClock;
 var testpolygon;
 var key_resp;
@@ -499,7 +505,7 @@ async function experimentInit() {
   text_howitworks = new visual.TextStim({
     win: psychoJS.window,
     name: 'text_howitworks',
-    text: 'This reaction time test is made of two parts\nVisual and Auditory\n\nThis test aims to test your reaction time. When you hear the sound being played or the image being shown, press the space bar on the keyboard as soon as you can. Do not try to predict the time that the stimulus will start as all stimuli are generated at random timings\n\nPlease move the mouse cursor to the edge of the screen or off screen to reduce interference. If the computer stops working during the test, please tell me\n\nThe first few stimuli will be the test runs for you familiarise with this test. \nPlease adjust the angle of the screen so that the circle is at the centre of your view without any dsitortion of the shape.\n\nPress the space bar when you have finished reading\n',
+    text: 'This reaction time test is made of two parts: Visual and Auditory\n\nThis test aims to test your reaction time. When you hear the sound being played or the image being shown, press the space bar on the keyboard as soon as you can. Do not try to predict the time that the stimulus will start as all stimuli are generated at random intervals (between 1.5 to 5 seconds)\n\nPress the space bar when you have finished reading\n',
     font: 'Open Sans',
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
@@ -509,6 +515,22 @@ async function experimentInit() {
   });
   
   endhowitworks = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
+  
+  // Initialize components for Routine "howitworkspart2"
+  howitworkspart2Clock = new util.Clock();
+  text_2 = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_2',
+    text: 'Please move the mouse cursor to the edge of the screen or off screen to reduce interference. If the computer stops working during the test, please tell me\n\nThe first few stimuli will be the test runs for you familiarise with this test. \nPlease adjust the angle of the screen so that the circle is at the centre of your view without any dsitortion of the shape.',
+    font: 'Open Sans',
+    units: undefined, 
+    pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    languageStyle: 'LTR',
+    color: new util.Color('white'),  opacity: undefined,
+    depth: 0.0 
+  });
+  
+  endhowitworkspart2 = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
   // Initialize components for Routine "test"
   testClock = new util.Clock();
@@ -1591,6 +1613,137 @@ function howitworksRoutineEnd(snapshot) {
 }
 
 
+var _endhowitworkspart2_allKeys;
+var howitworkspart2Components;
+function howitworkspart2RoutineBegin(snapshot) {
+  return async function () {
+    TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
+    
+    //--- Prepare to start Routine 'howitworkspart2' ---
+    t = 0;
+    howitworkspart2Clock.reset(); // clock
+    frameN = -1;
+    continueRoutine = true; // until we're told otherwise
+    // update component parameters for each repeat
+    psychoJS.experiment.addData('howitworkspart2.started', globalClock.getTime());
+    endhowitworkspart2.keys = undefined;
+    endhowitworkspart2.rt = undefined;
+    _endhowitworkspart2_allKeys = [];
+    // keep track of which components have finished
+    howitworkspart2Components = [];
+    howitworkspart2Components.push(text_2);
+    howitworkspart2Components.push(endhowitworkspart2);
+    
+    for (const thisComponent of howitworkspart2Components)
+      if ('status' in thisComponent)
+        thisComponent.status = PsychoJS.Status.NOT_STARTED;
+    return Scheduler.Event.NEXT;
+  }
+}
+
+
+function howitworkspart2RoutineEachFrame() {
+  return async function () {
+    //--- Loop for each frame of Routine 'howitworkspart2' ---
+    // get current time
+    t = howitworkspart2Clock.getTime();
+    frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
+    // update/draw components on each frame
+    
+    // *text_2* updates
+    if (t >= 0.0 && text_2.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      text_2.tStart = t;  // (not accounting for frame time here)
+      text_2.frameNStart = frameN;  // exact frame index
+      
+      text_2.setAutoDraw(true);
+    }
+    
+    
+    // *endhowitworkspart2* updates
+    if (t >= 2 && endhowitworkspart2.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      endhowitworkspart2.tStart = t;  // (not accounting for frame time here)
+      endhowitworkspart2.frameNStart = frameN;  // exact frame index
+      
+      // keyboard checking is just starting
+      psychoJS.window.callOnFlip(function() { endhowitworkspart2.clock.reset(); });  // t=0 on next screen flip
+      psychoJS.window.callOnFlip(function() { endhowitworkspart2.start(); }); // start on screen flip
+      psychoJS.window.callOnFlip(function() { endhowitworkspart2.clearEvents(); });
+    }
+    
+    if (endhowitworkspart2.status === PsychoJS.Status.STARTED) {
+      let theseKeys = endhowitworkspart2.getKeys({keyList: ['y', 'n', 'left', 'right', 'space'], waitRelease: false});
+      _endhowitworkspart2_allKeys = _endhowitworkspart2_allKeys.concat(theseKeys);
+      if (_endhowitworkspart2_allKeys.length > 0) {
+        endhowitworkspart2.keys = _endhowitworkspart2_allKeys[_endhowitworkspart2_allKeys.length - 1].name;  // just the last key pressed
+        endhowitworkspart2.rt = _endhowitworkspart2_allKeys[_endhowitworkspart2_allKeys.length - 1].rt;
+        endhowitworkspart2.duration = _endhowitworkspart2_allKeys[_endhowitworkspart2_allKeys.length - 1].duration;
+        // a response ends the routine
+        continueRoutine = false;
+      }
+    }
+    
+    // check for quit (typically the Esc key)
+    if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
+      return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
+    }
+    
+    // check if the Routine should terminate
+    if (!continueRoutine) {  // a component has requested a forced-end of Routine
+      return Scheduler.Event.NEXT;
+    }
+    
+    continueRoutine = false;  // reverts to True if at least one component still running
+    for (const thisComponent of howitworkspart2Components)
+      if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
+        continueRoutine = true;
+        break;
+      }
+    
+    // refresh the screen if continuing
+    if (continueRoutine) {
+      return Scheduler.Event.FLIP_REPEAT;
+    } else {
+      return Scheduler.Event.NEXT;
+    }
+  };
+}
+
+
+function howitworkspart2RoutineEnd(snapshot) {
+  return async function () {
+    //--- Ending Routine 'howitworkspart2' ---
+    for (const thisComponent of howitworkspart2Components) {
+      if (typeof thisComponent.setAutoDraw === 'function') {
+        thisComponent.setAutoDraw(false);
+      }
+    }
+    psychoJS.experiment.addData('howitworkspart2.stopped', globalClock.getTime());
+    // update the trial handler
+    if (currentLoop instanceof MultiStairHandler) {
+      currentLoop.addResponse(endhowitworkspart2.corr, level);
+    }
+    psychoJS.experiment.addData('endhowitworkspart2.keys', endhowitworkspart2.keys);
+    if (typeof endhowitworkspart2.keys !== 'undefined') {  // we had a response
+        psychoJS.experiment.addData('endhowitworkspart2.rt', endhowitworkspart2.rt);
+        psychoJS.experiment.addData('endhowitworkspart2.duration', endhowitworkspart2.duration);
+        routineTimer.reset();
+        }
+    
+    endhowitworkspart2.stop();
+    // the Routine "howitworkspart2" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset();
+    
+    // Routines running outside a loop should always advance the datafile row
+    if (currentLoop === psychoJS.experiment) {
+      psychoJS.experiment.nextEntry(snapshot);
+    }
+    return Scheduler.Event.NEXT;
+  }
+}
+
+
 var testloop;
 function testloopLoopBegin(testloopLoopScheduler, snapshot) {
   return async function() {
@@ -2017,7 +2170,7 @@ function red0_5RoutineEachFrame() {
     // update/draw components on each frame
     
     // *res_red_0_5* updates
-    if (t >= 2 && res_red_0_5.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 1.82 && res_red_0_5.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_red_0_5.tStart = t;  // (not accounting for frame time here)
       res_red_0_5.frameNStart = frameN;  // exact frame index
@@ -2042,7 +2195,7 @@ function red0_5RoutineEachFrame() {
     
     
     // *polygon_red_0_5* updates
-    if (t >= 2 && polygon_red_0_5.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 1.82 && polygon_red_0_5.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_red_0_5.tStart = t;  // (not accounting for frame time here)
       polygon_red_0_5.frameNStart = frameN;  // exact frame index
@@ -2148,7 +2301,7 @@ function red0_625RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_red_0_625* updates
-    if (t >= 2 && polygon_red_0_625.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.643 && polygon_red_0_625.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_red_0_625.tStart = t;  // (not accounting for frame time here)
       polygon_red_0_625.frameNStart = frameN;  // exact frame index
@@ -2158,7 +2311,7 @@ function red0_625RoutineEachFrame() {
     
     
     // *res_red_0_625* updates
-    if (t >= 2 && res_red_0_625.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.643 && res_red_0_625.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_red_0_625.tStart = t;  // (not accounting for frame time here)
       res_red_0_625.frameNStart = frameN;  // exact frame index
@@ -2279,7 +2432,7 @@ function red0_75RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_red_0_75* updates
-    if (t >= 2 && polygon_red_0_75.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 4.216 && polygon_red_0_75.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_red_0_75.tStart = t;  // (not accounting for frame time here)
       polygon_red_0_75.frameNStart = frameN;  // exact frame index
@@ -2289,7 +2442,7 @@ function red0_75RoutineEachFrame() {
     
     
     // *res_red_0_75* updates
-    if (t >= 2 && res_red_0_75.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 4.216 && res_red_0_75.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_red_0_75.tStart = t;  // (not accounting for frame time here)
       res_red_0_75.frameNStart = frameN;  // exact frame index
@@ -2410,7 +2563,7 @@ function red0_875RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_red_0_875* updates
-    if (t >= 2 && polygon_red_0_875.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.852 && polygon_red_0_875.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_red_0_875.tStart = t;  // (not accounting for frame time here)
       polygon_red_0_875.frameNStart = frameN;  // exact frame index
@@ -2420,7 +2573,7 @@ function red0_875RoutineEachFrame() {
     
     
     // *res_red_0_875* updates
-    if (t >= 2 && res_red_0_875.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.852 && res_red_0_875.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_red_0_875.tStart = t;  // (not accounting for frame time here)
       res_red_0_875.frameNStart = frameN;  // exact frame index
@@ -2541,7 +2694,7 @@ function red1RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_red_1* updates
-    if (t >= 2 && polygon_red_1.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.833 && polygon_red_1.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_red_1.tStart = t;  // (not accounting for frame time here)
       polygon_red_1.frameNStart = frameN;  // exact frame index
@@ -2551,7 +2704,7 @@ function red1RoutineEachFrame() {
     
     
     // *res_red_1* updates
-    if (t >= 2 && res_red_1.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.833 && res_red_1.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_red_1.tStart = t;  // (not accounting for frame time here)
       res_red_1.frameNStart = frameN;  // exact frame index
@@ -2672,7 +2825,7 @@ function yellow0_5RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_0_5* updates
-    if (t >= 2 && polygon_0_5.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.146 && polygon_0_5.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_0_5.tStart = t;  // (not accounting for frame time here)
       polygon_0_5.frameNStart = frameN;  // exact frame index
@@ -2682,7 +2835,7 @@ function yellow0_5RoutineEachFrame() {
     
     
     // *res_yellow_0_5* updates
-    if (t >= 2 && res_yellow_0_5.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.146 && res_yellow_0_5.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_yellow_0_5.tStart = t;  // (not accounting for frame time here)
       res_yellow_0_5.frameNStart = frameN;  // exact frame index
@@ -2803,7 +2956,7 @@ function yellow0_625RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_yellow_0_625* updates
-    if (t >= 2 && polygon_yellow_0_625.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.561 && polygon_yellow_0_625.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_yellow_0_625.tStart = t;  // (not accounting for frame time here)
       polygon_yellow_0_625.frameNStart = frameN;  // exact frame index
@@ -2813,7 +2966,7 @@ function yellow0_625RoutineEachFrame() {
     
     
     // *res_yellow_0_625* updates
-    if (t >= 2 && res_yellow_0_625.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.561 && res_yellow_0_625.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_yellow_0_625.tStart = t;  // (not accounting for frame time here)
       res_yellow_0_625.frameNStart = frameN;  // exact frame index
@@ -2934,7 +3087,7 @@ function yellow0_75RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_yellow_0_75* updates
-    if (t >= 2 && polygon_yellow_0_75.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 4.516 && polygon_yellow_0_75.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_yellow_0_75.tStart = t;  // (not accounting for frame time here)
       polygon_yellow_0_75.frameNStart = frameN;  // exact frame index
@@ -2944,7 +3097,7 @@ function yellow0_75RoutineEachFrame() {
     
     
     // *res_yellow_0_75* updates
-    if (t >= 2 && res_yellow_0_75.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 4.516 && res_yellow_0_75.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_yellow_0_75.tStart = t;  // (not accounting for frame time here)
       res_yellow_0_75.frameNStart = frameN;  // exact frame index
@@ -3065,7 +3218,7 @@ function yellow0_875RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_yellow_0_875* updates
-    if (t >= 2 && polygon_yellow_0_875.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 4.434 && polygon_yellow_0_875.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_yellow_0_875.tStart = t;  // (not accounting for frame time here)
       polygon_yellow_0_875.frameNStart = frameN;  // exact frame index
@@ -3075,7 +3228,7 @@ function yellow0_875RoutineEachFrame() {
     
     
     // *res_yellow_0_875* updates
-    if (t >= 2 && res_yellow_0_875.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 4.434 && res_yellow_0_875.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_yellow_0_875.tStart = t;  // (not accounting for frame time here)
       res_yellow_0_875.frameNStart = frameN;  // exact frame index
@@ -3196,7 +3349,7 @@ function yellow1RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_yellow_1* updates
-    if (t >= 2 && polygon_yellow_1.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.888 && polygon_yellow_1.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_yellow_1.tStart = t;  // (not accounting for frame time here)
       polygon_yellow_1.frameNStart = frameN;  // exact frame index
@@ -3206,7 +3359,7 @@ function yellow1RoutineEachFrame() {
     
     
     // *res_yellow_1* updates
-    if (t >= 2 && res_yellow_1.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.888 && res_yellow_1.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_yellow_1.tStart = t;  // (not accounting for frame time here)
       res_yellow_1.frameNStart = frameN;  // exact frame index
@@ -3327,7 +3480,7 @@ function blue0_5RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_blue_0_5* updates
-    if (t >= 2 && polygon_blue_0_5.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.431 && polygon_blue_0_5.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_blue_0_5.tStart = t;  // (not accounting for frame time here)
       polygon_blue_0_5.frameNStart = frameN;  // exact frame index
@@ -3337,7 +3490,7 @@ function blue0_5RoutineEachFrame() {
     
     
     // *res_blue_0_5* updates
-    if (t >= 2 && res_blue_0_5.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.431 && res_blue_0_5.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_blue_0_5.tStart = t;  // (not accounting for frame time here)
       res_blue_0_5.frameNStart = frameN;  // exact frame index
@@ -3458,7 +3611,7 @@ function blue0_625RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_blue_0_625* updates
-    if (t >= 2 && polygon_blue_0_625.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.582 && polygon_blue_0_625.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_blue_0_625.tStart = t;  // (not accounting for frame time here)
       polygon_blue_0_625.frameNStart = frameN;  // exact frame index
@@ -3468,7 +3621,7 @@ function blue0_625RoutineEachFrame() {
     
     
     // *res_blue_0_625* updates
-    if (t >= 2 && res_blue_0_625.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.582 && res_blue_0_625.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_blue_0_625.tStart = t;  // (not accounting for frame time here)
       res_blue_0_625.frameNStart = frameN;  // exact frame index
@@ -3589,7 +3742,7 @@ function blue0_75RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_blue_0_75* updates
-    if (t >= 2 && polygon_blue_0_75.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.355 && polygon_blue_0_75.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_blue_0_75.tStart = t;  // (not accounting for frame time here)
       polygon_blue_0_75.frameNStart = frameN;  // exact frame index
@@ -3599,7 +3752,7 @@ function blue0_75RoutineEachFrame() {
     
     
     // *res_blue_0_75* updates
-    if (t >= 2 && res_blue_0_75.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.355 && res_blue_0_75.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_blue_0_75.tStart = t;  // (not accounting for frame time here)
       res_blue_0_75.frameNStart = frameN;  // exact frame index
@@ -3720,7 +3873,7 @@ function blue0_875RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_blue_0_875* updates
-    if (t >= 2 && polygon_blue_0_875.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.157 && polygon_blue_0_875.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_blue_0_875.tStart = t;  // (not accounting for frame time here)
       polygon_blue_0_875.frameNStart = frameN;  // exact frame index
@@ -3730,7 +3883,7 @@ function blue0_875RoutineEachFrame() {
     
     
     // *res_blue_0_875* updates
-    if (t >= 2 && res_blue_0_875.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.157 && res_blue_0_875.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_blue_0_875.tStart = t;  // (not accounting for frame time here)
       res_blue_0_875.frameNStart = frameN;  // exact frame index
@@ -3851,7 +4004,7 @@ function blue1RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_blue_1* updates
-    if (t >= 2 && polygon_blue_1.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.951 && polygon_blue_1.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_blue_1.tStart = t;  // (not accounting for frame time here)
       polygon_blue_1.frameNStart = frameN;  // exact frame index
@@ -3861,7 +4014,7 @@ function blue1RoutineEachFrame() {
     
     
     // *res_blue_1* updates
-    if (t >= 2 && res_blue_1.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.951 && res_blue_1.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_blue_1.tStart = t;  // (not accounting for frame time here)
       res_blue_1.frameNStart = frameN;  // exact frame index
@@ -3982,7 +4135,7 @@ function green0_5RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_green_0_5* updates
-    if (t >= 2 && polygon_green_0_5.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.181 && polygon_green_0_5.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_green_0_5.tStart = t;  // (not accounting for frame time here)
       polygon_green_0_5.frameNStart = frameN;  // exact frame index
@@ -3992,7 +4145,7 @@ function green0_5RoutineEachFrame() {
     
     
     // *res_green_0_5* updates
-    if (t >= 2 && res_green_0_5.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.181 && res_green_0_5.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_green_0_5.tStart = t;  // (not accounting for frame time here)
       res_green_0_5.frameNStart = frameN;  // exact frame index
@@ -4113,7 +4266,7 @@ function green0_625RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_green_0_625* updates
-    if (t >= 2 && polygon_green_0_625.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.537 && polygon_green_0_625.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_green_0_625.tStart = t;  // (not accounting for frame time here)
       polygon_green_0_625.frameNStart = frameN;  // exact frame index
@@ -4123,7 +4276,7 @@ function green0_625RoutineEachFrame() {
     
     
     // *res_green_0_625* updates
-    if (t >= 2 && res_green_0_625.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.537 && res_green_0_625.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_green_0_625.tStart = t;  // (not accounting for frame time here)
       res_green_0_625.frameNStart = frameN;  // exact frame index
@@ -4244,7 +4397,7 @@ function green0_75RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_green_0_75* updates
-    if (t >= 2 && polygon_green_0_75.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.089 && polygon_green_0_75.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_green_0_75.tStart = t;  // (not accounting for frame time here)
       polygon_green_0_75.frameNStart = frameN;  // exact frame index
@@ -4254,7 +4407,7 @@ function green0_75RoutineEachFrame() {
     
     
     // *res_green_0_75* updates
-    if (t >= 2 && res_green_0_75.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.089 && res_green_0_75.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_green_0_75.tStart = t;  // (not accounting for frame time here)
       res_green_0_75.frameNStart = frameN;  // exact frame index
@@ -4366,6 +4519,7 @@ function green0_875RoutineBegin(snapshot) {
 }
 
 
+var frameRemains;
 function green0_875RoutineEachFrame() {
   return async function () {
     //--- Loop for each frame of Routine 'green0_875' ---
@@ -4375,7 +4529,7 @@ function green0_875RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_green_0_875* updates
-    if (t >= 2 && polygon_green_0_875.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.958 && polygon_green_0_875.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_green_0_875.tStart = t;  // (not accounting for frame time here)
       polygon_green_0_875.frameNStart = frameN;  // exact frame index
@@ -4383,9 +4537,14 @@ function green0_875RoutineEachFrame() {
       polygon_green_0_875.setAutoDraw(true);
     }
     
+    frameRemains = 3.958 + 3.958 - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
+    if (polygon_green_0_875.status === PsychoJS.Status.STARTED && t >= frameRemains) {
+      polygon_green_0_875.setAutoDraw(false);
+    }
+    
     
     // *res_green_0_875* updates
-    if (t >= 2 && res_green_0_875.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.958 && res_green_0_875.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_green_0_875.tStart = t;  // (not accounting for frame time here)
       res_green_0_875.frameNStart = frameN;  // exact frame index
@@ -4506,7 +4665,7 @@ function green1RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_green_1* updates
-    if (t >= 2 && polygon_green_1.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 4.208 && polygon_green_1.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_green_1.tStart = t;  // (not accounting for frame time here)
       polygon_green_1.frameNStart = frameN;  // exact frame index
@@ -4516,7 +4675,7 @@ function green1RoutineEachFrame() {
     
     
     // *res_green_1* updates
-    if (t >= 2 && res_green_1.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 4.208 && res_green_1.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_green_1.tStart = t;  // (not accounting for frame time here)
       res_green_1.frameNStart = frameN;  // exact frame index
@@ -4637,7 +4796,7 @@ function purple0_5RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_purple_0_5* updates
-    if (t >= 2 && polygon_purple_0_5.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 1.525 && polygon_purple_0_5.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_purple_0_5.tStart = t;  // (not accounting for frame time here)
       polygon_purple_0_5.frameNStart = frameN;  // exact frame index
@@ -4647,7 +4806,7 @@ function purple0_5RoutineEachFrame() {
     
     
     // *res_purple_0_5* updates
-    if (t >= 2 && res_purple_0_5.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 1.525 && res_purple_0_5.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_purple_0_5.tStart = t;  // (not accounting for frame time here)
       res_purple_0_5.frameNStart = frameN;  // exact frame index
@@ -4768,7 +4927,7 @@ function purple0_625RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_purple_0_625* updates
-    if (t >= 2 && polygon_purple_0_625.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 4.054 && polygon_purple_0_625.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_purple_0_625.tStart = t;  // (not accounting for frame time here)
       polygon_purple_0_625.frameNStart = frameN;  // exact frame index
@@ -4778,7 +4937,7 @@ function purple0_625RoutineEachFrame() {
     
     
     // *res_purple_0_625* updates
-    if (t >= 2 && res_purple_0_625.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 4.054 && res_purple_0_625.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_purple_0_625.tStart = t;  // (not accounting for frame time here)
       res_purple_0_625.frameNStart = frameN;  // exact frame index
@@ -4899,7 +5058,7 @@ function purple0_75RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_purple_0_75* updates
-    if (t >= 2 && polygon_purple_0_75.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.198 && polygon_purple_0_75.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_purple_0_75.tStart = t;  // (not accounting for frame time here)
       polygon_purple_0_75.frameNStart = frameN;  // exact frame index
@@ -4909,7 +5068,7 @@ function purple0_75RoutineEachFrame() {
     
     
     // *res_purple_0_75* updates
-    if (t >= 2 && res_purple_0_75.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.198 && res_purple_0_75.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_purple_0_75.tStart = t;  // (not accounting for frame time here)
       res_purple_0_75.frameNStart = frameN;  // exact frame index
@@ -5030,7 +5189,7 @@ function purple0_875RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_purple_0_875* updates
-    if (t >= 2 && polygon_purple_0_875.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.51 && polygon_purple_0_875.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_purple_0_875.tStart = t;  // (not accounting for frame time here)
       polygon_purple_0_875.frameNStart = frameN;  // exact frame index
@@ -5040,7 +5199,7 @@ function purple0_875RoutineEachFrame() {
     
     
     // *res_purple_0_875* updates
-    if (t >= 2 && res_purple_0_875.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.51 && res_purple_0_875.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_purple_0_875.tStart = t;  // (not accounting for frame time here)
       res_purple_0_875.frameNStart = frameN;  // exact frame index
@@ -5161,7 +5320,7 @@ function purple1RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_purple_1* updates
-    if (t >= 2 && polygon_purple_1.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.169 && polygon_purple_1.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_purple_1.tStart = t;  // (not accounting for frame time here)
       polygon_purple_1.frameNStart = frameN;  // exact frame index
@@ -5171,7 +5330,7 @@ function purple1RoutineEachFrame() {
     
     
     // *res_purple_1* updates
-    if (t >= 2 && res_purple_1.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.169 && res_purple_1.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_purple_1.tStart = t;  // (not accounting for frame time here)
       res_purple_1.frameNStart = frameN;  // exact frame index
@@ -5292,7 +5451,7 @@ function orange0_5RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_orange_0_5* updates
-    if (t >= 2 && polygon_orange_0_5.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.946 && polygon_orange_0_5.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_orange_0_5.tStart = t;  // (not accounting for frame time here)
       polygon_orange_0_5.frameNStart = frameN;  // exact frame index
@@ -5302,7 +5461,7 @@ function orange0_5RoutineEachFrame() {
     
     
     // *res_orange_0_5* updates
-    if (t >= 2 && res_orange_0_5.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.946 && res_orange_0_5.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_orange_0_5.tStart = t;  // (not accounting for frame time here)
       res_orange_0_5.frameNStart = frameN;  // exact frame index
@@ -5423,7 +5582,7 @@ function orange0_625RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_orange_0_625* updates
-    if (t >= 2 && polygon_orange_0_625.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 1.87 && polygon_orange_0_625.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_orange_0_625.tStart = t;  // (not accounting for frame time here)
       polygon_orange_0_625.frameNStart = frameN;  // exact frame index
@@ -5433,7 +5592,7 @@ function orange0_625RoutineEachFrame() {
     
     
     // *res_orange_0_625* updates
-    if (t >= 2 && res_orange_0_625.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 1.87 && res_orange_0_625.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_orange_0_625.tStart = t;  // (not accounting for frame time here)
       res_orange_0_625.frameNStart = frameN;  // exact frame index
@@ -5554,7 +5713,7 @@ function orange0_75RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_orange_0_75* updates
-    if (t >= 2 && polygon_orange_0_75.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.143 && polygon_orange_0_75.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_orange_0_75.tStart = t;  // (not accounting for frame time here)
       polygon_orange_0_75.frameNStart = frameN;  // exact frame index
@@ -5564,7 +5723,7 @@ function orange0_75RoutineEachFrame() {
     
     
     // *res_orange_0_75* updates
-    if (t >= 2 && res_orange_0_75.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.143 && res_orange_0_75.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_orange_0_75.tStart = t;  // (not accounting for frame time here)
       res_orange_0_75.frameNStart = frameN;  // exact frame index
@@ -5685,7 +5844,7 @@ function orange0_875RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_res_0_875* updates
-    if (t >= 2 && polygon_res_0_875.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 1.817 && polygon_res_0_875.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_res_0_875.tStart = t;  // (not accounting for frame time here)
       polygon_res_0_875.frameNStart = frameN;  // exact frame index
@@ -5695,7 +5854,7 @@ function orange0_875RoutineEachFrame() {
     
     
     // *res_orange_0_875* updates
-    if (t >= 2 && res_orange_0_875.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 1.817 && res_orange_0_875.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_orange_0_875.tStart = t;  // (not accounting for frame time here)
       res_orange_0_875.frameNStart = frameN;  // exact frame index
@@ -5816,7 +5975,7 @@ function orange1RoutineEachFrame() {
     // update/draw components on each frame
     
     // *polygon_orange_1* updates
-    if (t >= 2 && polygon_orange_1.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 4.991 && polygon_orange_1.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       polygon_orange_1.tStart = t;  // (not accounting for frame time here)
       polygon_orange_1.frameNStart = frameN;  // exact frame index
@@ -5826,7 +5985,7 @@ function orange1RoutineEachFrame() {
     
     
     // *res_orange_1* updates
-    if (t >= 2 && res_orange_1.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 4.991 && res_orange_1.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_orange_1.tStart = t;  // (not accounting for frame time here)
       res_orange_1.frameNStart = frameN;  // exact frame index
@@ -6345,7 +6504,7 @@ function audio_500Hz_0_25RoutineEachFrame() {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     // start/stop sound_500Hz_0_25
-    if (t >= 2 && sound_500Hz_0_25.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.567 && sound_500Hz_0_25.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       sound_500Hz_0_25.tStart = t;  // (not accounting for frame time here)
       sound_500Hz_0_25.frameNStart = frameN;  // exact frame index
@@ -6359,7 +6518,7 @@ function audio_500Hz_0_25RoutineEachFrame() {
     }
     
     // *res_500Hz_0_25* updates
-    if (t >= 2 && res_500Hz_0_25.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.567 && res_500Hz_0_25.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_500Hz_0_25.tStart = t;  // (not accounting for frame time here)
       res_500Hz_0_25.frameNStart = frameN;  // exact frame index
@@ -6481,7 +6640,7 @@ function audio_500Hz_0_5RoutineEachFrame() {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     // start/stop sound_500Hz_0_5
-    if (t >= 2 && sound_500Hz_0_5.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.385 && sound_500Hz_0_5.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       sound_500Hz_0_5.tStart = t;  // (not accounting for frame time here)
       sound_500Hz_0_5.frameNStart = frameN;  // exact frame index
@@ -6495,7 +6654,7 @@ function audio_500Hz_0_5RoutineEachFrame() {
     }
     
     // *res_500Hz_0_5* updates
-    if (t >= 2 && res_500Hz_0_5.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.385 && res_500Hz_0_5.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_500Hz_0_5.tStart = t;  // (not accounting for frame time here)
       res_500Hz_0_5.frameNStart = frameN;  // exact frame index
@@ -6617,7 +6776,7 @@ function audio_500Hz_0_75RoutineEachFrame() {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     // start/stop sound_500Hz_0_75
-    if (t >= 2 && sound_500Hz_0_75.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.149 && sound_500Hz_0_75.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       sound_500Hz_0_75.tStart = t;  // (not accounting for frame time here)
       sound_500Hz_0_75.frameNStart = frameN;  // exact frame index
@@ -6631,7 +6790,7 @@ function audio_500Hz_0_75RoutineEachFrame() {
     }
     
     // *res_500Hz_0_75* updates
-    if (t >= 2 && res_500Hz_0_75.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.149 && res_500Hz_0_75.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_500Hz_0_75.tStart = t;  // (not accounting for frame time here)
       res_500Hz_0_75.frameNStart = frameN;  // exact frame index
@@ -6753,7 +6912,7 @@ function audio_500Hz_1RoutineEachFrame() {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     // start/stop sound_500Hz
-    if (t >= 2 && sound_500Hz.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.529 && sound_500Hz.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       sound_500Hz.tStart = t;  // (not accounting for frame time here)
       sound_500Hz.frameNStart = frameN;  // exact frame index
@@ -6767,7 +6926,7 @@ function audio_500Hz_1RoutineEachFrame() {
     }
     
     // *res_500Hz* updates
-    if (t >= 2 && res_500Hz.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.529 && res_500Hz.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_500Hz.tStart = t;  // (not accounting for frame time here)
       res_500Hz.frameNStart = frameN;  // exact frame index
@@ -6889,7 +7048,7 @@ function audio_2500Hz_0_25RoutineEachFrame() {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     // start/stop sound_2500Hz_0_25
-    if (t >= 2 && sound_2500Hz_0_25.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.878 && sound_2500Hz_0_25.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       sound_2500Hz_0_25.tStart = t;  // (not accounting for frame time here)
       sound_2500Hz_0_25.frameNStart = frameN;  // exact frame index
@@ -6903,7 +7062,7 @@ function audio_2500Hz_0_25RoutineEachFrame() {
     }
     
     // *res_2500Hz_0_25* updates
-    if (t >= 2 && res_2500Hz_0_25.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.878 && res_2500Hz_0_25.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_2500Hz_0_25.tStart = t;  // (not accounting for frame time here)
       res_2500Hz_0_25.frameNStart = frameN;  // exact frame index
@@ -7025,7 +7184,7 @@ function audio_2500Hz_0_5RoutineEachFrame() {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     // start/stop sound_2500Hz_0_5
-    if (t >= 2 && sound_2500Hz_0_5.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 1.277 && sound_2500Hz_0_5.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       sound_2500Hz_0_5.tStart = t;  // (not accounting for frame time here)
       sound_2500Hz_0_5.frameNStart = frameN;  // exact frame index
@@ -7039,7 +7198,7 @@ function audio_2500Hz_0_5RoutineEachFrame() {
     }
     
     // *res_2500Hz_0_5* updates
-    if (t >= 2 && res_2500Hz_0_5.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 1.277 && res_2500Hz_0_5.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_2500Hz_0_5.tStart = t;  // (not accounting for frame time here)
       res_2500Hz_0_5.frameNStart = frameN;  // exact frame index
@@ -7161,7 +7320,7 @@ function audio_2500Hz_0_75RoutineEachFrame() {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     // start/stop sound_2500Hz_0_75
-    if (t >= 2 && sound_2500Hz_0_75.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.038 && sound_2500Hz_0_75.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       sound_2500Hz_0_75.tStart = t;  // (not accounting for frame time here)
       sound_2500Hz_0_75.frameNStart = frameN;  // exact frame index
@@ -7175,7 +7334,7 @@ function audio_2500Hz_0_75RoutineEachFrame() {
     }
     
     // *res_2500Hz_0_75* updates
-    if (t >= 2 && res_2500Hz_0_75.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.038 && res_2500Hz_0_75.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_2500Hz_0_75.tStart = t;  // (not accounting for frame time here)
       res_2500Hz_0_75.frameNStart = frameN;  // exact frame index
@@ -7297,7 +7456,7 @@ function audio_2500HzRoutineEachFrame() {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     // start/stop sound_2500Hz
-    if (t >= 2 && sound_2500Hz.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.456 && sound_2500Hz.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       sound_2500Hz.tStart = t;  // (not accounting for frame time here)
       sound_2500Hz.frameNStart = frameN;  // exact frame index
@@ -7311,7 +7470,7 @@ function audio_2500HzRoutineEachFrame() {
     }
     
     // *res_2500Hz* updates
-    if (t >= 2 && res_2500Hz.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.456 && res_2500Hz.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_2500Hz.tStart = t;  // (not accounting for frame time here)
       res_2500Hz.frameNStart = frameN;  // exact frame index
@@ -7433,7 +7592,7 @@ function audio_5000Hz_0_25RoutineEachFrame() {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     // start/stop sound_5000Hz_0_25
-    if (t >= 2 && sound_5000Hz_0_25.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 4.159 && sound_5000Hz_0_25.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       sound_5000Hz_0_25.tStart = t;  // (not accounting for frame time here)
       sound_5000Hz_0_25.frameNStart = frameN;  // exact frame index
@@ -7447,7 +7606,7 @@ function audio_5000Hz_0_25RoutineEachFrame() {
     }
     
     // *res_5000Hz_0_25* updates
-    if (t >= 2 && res_5000Hz_0_25.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 4.159 && res_5000Hz_0_25.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_5000Hz_0_25.tStart = t;  // (not accounting for frame time here)
       res_5000Hz_0_25.frameNStart = frameN;  // exact frame index
@@ -7569,7 +7728,7 @@ function audio_5000Hz_0_5RoutineEachFrame() {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     // start/stop sound_5000Hz_0_5
-    if (t >= 2 && sound_5000Hz_0_5.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.639 && sound_5000Hz_0_5.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       sound_5000Hz_0_5.tStart = t;  // (not accounting for frame time here)
       sound_5000Hz_0_5.frameNStart = frameN;  // exact frame index
@@ -7583,7 +7742,7 @@ function audio_5000Hz_0_5RoutineEachFrame() {
     }
     
     // *res_5000Hz_0_5* updates
-    if (t >= 2 && res_5000Hz_0_5.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.639 && res_5000Hz_0_5.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_5000Hz_0_5.tStart = t;  // (not accounting for frame time here)
       res_5000Hz_0_5.frameNStart = frameN;  // exact frame index
@@ -7705,7 +7864,7 @@ function audio_5000Hz_0_75RoutineEachFrame() {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     // start/stop sound_5000Hz_0_75
-    if (t >= 2 && sound_5000Hz_0_75.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.665 && sound_5000Hz_0_75.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       sound_5000Hz_0_75.tStart = t;  // (not accounting for frame time here)
       sound_5000Hz_0_75.frameNStart = frameN;  // exact frame index
@@ -7719,7 +7878,7 @@ function audio_5000Hz_0_75RoutineEachFrame() {
     }
     
     // *res_5000Hz_0_75* updates
-    if (t >= 2 && res_5000Hz_0_75.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.665 && res_5000Hz_0_75.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_5000Hz_0_75.tStart = t;  // (not accounting for frame time here)
       res_5000Hz_0_75.frameNStart = frameN;  // exact frame index
@@ -7841,7 +8000,7 @@ function audio_5000HzRoutineEachFrame() {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     // start/stop sound_5000Hz
-    if (t >= 2 && sound_5000Hz.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.303 && sound_5000Hz.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       sound_5000Hz.tStart = t;  // (not accounting for frame time here)
       sound_5000Hz.frameNStart = frameN;  // exact frame index
@@ -7855,7 +8014,7 @@ function audio_5000HzRoutineEachFrame() {
     }
     
     // *res_5000Hz* updates
-    if (t >= 2 && res_5000Hz.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.303 && res_5000Hz.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_5000Hz.tStart = t;  // (not accounting for frame time here)
       res_5000Hz.frameNStart = frameN;  // exact frame index
@@ -7977,7 +8136,7 @@ function audio_7500Hz_0_25RoutineEachFrame() {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     // start/stop sound_7500Hz_0_25
-    if (t >= 2 && sound_7500Hz_0_25.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 1.433 && sound_7500Hz_0_25.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       sound_7500Hz_0_25.tStart = t;  // (not accounting for frame time here)
       sound_7500Hz_0_25.frameNStart = frameN;  // exact frame index
@@ -7991,7 +8150,7 @@ function audio_7500Hz_0_25RoutineEachFrame() {
     }
     
     // *res_7500Hz_0_25* updates
-    if (t >= 2 && res_7500Hz_0_25.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 1.433 && res_7500Hz_0_25.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_7500Hz_0_25.tStart = t;  // (not accounting for frame time here)
       res_7500Hz_0_25.frameNStart = frameN;  // exact frame index
@@ -8113,7 +8272,7 @@ function audio_7500Hz_0_5RoutineEachFrame() {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     // start/stop sound_7500Hz_0_5
-    if (t >= 2 && sound_7500Hz_0_5.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.199 && sound_7500Hz_0_5.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       sound_7500Hz_0_5.tStart = t;  // (not accounting for frame time here)
       sound_7500Hz_0_5.frameNStart = frameN;  // exact frame index
@@ -8127,7 +8286,7 @@ function audio_7500Hz_0_5RoutineEachFrame() {
     }
     
     // *res_7500Hz_0_5* updates
-    if (t >= 2 && res_7500Hz_0_5.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.199 && res_7500Hz_0_5.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_7500Hz_0_5.tStart = t;  // (not accounting for frame time here)
       res_7500Hz_0_5.frameNStart = frameN;  // exact frame index
@@ -8249,7 +8408,7 @@ function audio_7500Hz_0_75RoutineEachFrame() {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     // start/stop sound_7500Hz_0_75
-    if (t >= 2 && sound_7500Hz_0_75.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.519 && sound_7500Hz_0_75.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       sound_7500Hz_0_75.tStart = t;  // (not accounting for frame time here)
       sound_7500Hz_0_75.frameNStart = frameN;  // exact frame index
@@ -8263,7 +8422,7 @@ function audio_7500Hz_0_75RoutineEachFrame() {
     }
     
     // *res_7500Hz_0_75* updates
-    if (t >= 2 && res_7500Hz_0_75.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.519 && res_7500Hz_0_75.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_7500Hz_0_75.tStart = t;  // (not accounting for frame time here)
       res_7500Hz_0_75.frameNStart = frameN;  // exact frame index
@@ -8385,7 +8544,7 @@ function audio_7500HzRoutineEachFrame() {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     // start/stop sound_7500Hz
-    if (t >= 2 && sound_7500Hz.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.238 && sound_7500Hz.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       sound_7500Hz.tStart = t;  // (not accounting for frame time here)
       sound_7500Hz.frameNStart = frameN;  // exact frame index
@@ -8399,7 +8558,7 @@ function audio_7500HzRoutineEachFrame() {
     }
     
     // *res_7500Hz* updates
-    if (t >= 2 && res_7500Hz.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.238 && res_7500Hz.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_7500Hz.tStart = t;  // (not accounting for frame time here)
       res_7500Hz.frameNStart = frameN;  // exact frame index
@@ -8521,7 +8680,7 @@ function audio_10000Hz_0_25RoutineEachFrame() {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     // start/stop sound_10000Hz_0_25
-    if (t >= 2 && sound_10000Hz_0_25.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.286 && sound_10000Hz_0_25.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       sound_10000Hz_0_25.tStart = t;  // (not accounting for frame time here)
       sound_10000Hz_0_25.frameNStart = frameN;  // exact frame index
@@ -8535,7 +8694,7 @@ function audio_10000Hz_0_25RoutineEachFrame() {
     }
     
     // *res_10000Hz_0_25* updates
-    if (t >= 2 && res_10000Hz_0_25.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.286 && res_10000Hz_0_25.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_10000Hz_0_25.tStart = t;  // (not accounting for frame time here)
       res_10000Hz_0_25.frameNStart = frameN;  // exact frame index
@@ -8657,7 +8816,7 @@ function audio_10000Hz_0_5RoutineEachFrame() {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     // start/stop sound_10000Hz_0_5
-    if (t >= 2 && sound_10000Hz_0_5.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 4.389 && sound_10000Hz_0_5.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       sound_10000Hz_0_5.tStart = t;  // (not accounting for frame time here)
       sound_10000Hz_0_5.frameNStart = frameN;  // exact frame index
@@ -8671,7 +8830,7 @@ function audio_10000Hz_0_5RoutineEachFrame() {
     }
     
     // *res_10000Hz_0_5* updates
-    if (t >= 2 && res_10000Hz_0_5.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 4.389 && res_10000Hz_0_5.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_10000Hz_0_5.tStart = t;  // (not accounting for frame time here)
       res_10000Hz_0_5.frameNStart = frameN;  // exact frame index
@@ -8793,7 +8952,7 @@ function audio_10000Hz_0_75RoutineEachFrame() {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     // start/stop sound_10000Hz_0_75
-    if (t >= 2 && sound_10000Hz_0_75.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.457 && sound_10000Hz_0_75.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       sound_10000Hz_0_75.tStart = t;  // (not accounting for frame time here)
       sound_10000Hz_0_75.frameNStart = frameN;  // exact frame index
@@ -8807,7 +8966,7 @@ function audio_10000Hz_0_75RoutineEachFrame() {
     }
     
     // *res_10000Hz_0_75* updates
-    if (t >= 2 && res_10000Hz_0_75.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.457 && res_10000Hz_0_75.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_10000Hz_0_75.tStart = t;  // (not accounting for frame time here)
       res_10000Hz_0_75.frameNStart = frameN;  // exact frame index
@@ -8929,7 +9088,7 @@ function audio_10000HzRoutineEachFrame() {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     // start/stop sound_10000Hz
-    if (t >= 2 && sound_10000Hz.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 4.798 && sound_10000Hz.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       sound_10000Hz.tStart = t;  // (not accounting for frame time here)
       sound_10000Hz.frameNStart = frameN;  // exact frame index
@@ -8943,7 +9102,7 @@ function audio_10000HzRoutineEachFrame() {
     }
     
     // *res_10000Hz* updates
-    if (t >= 2 && res_10000Hz.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 4.798 && res_10000Hz.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_10000Hz.tStart = t;  // (not accounting for frame time here)
       res_10000Hz.frameNStart = frameN;  // exact frame index
@@ -9065,7 +9224,7 @@ function audio_12500Hz_0_25RoutineEachFrame() {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     // start/stop sound_12500Hz_0_25
-    if (t >= 2 && sound_12500Hz_0_25.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.525 && sound_12500Hz_0_25.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       sound_12500Hz_0_25.tStart = t;  // (not accounting for frame time here)
       sound_12500Hz_0_25.frameNStart = frameN;  // exact frame index
@@ -9079,7 +9238,7 @@ function audio_12500Hz_0_25RoutineEachFrame() {
     }
     
     // *res_12500Hz_0_25* updates
-    if (t >= 2 && res_12500Hz_0_25.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 3.525 && res_12500Hz_0_25.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_12500Hz_0_25.tStart = t;  // (not accounting for frame time here)
       res_12500Hz_0_25.frameNStart = frameN;  // exact frame index
@@ -9201,7 +9360,7 @@ function audio_12500Hz_0_5RoutineEachFrame() {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     // start/stop sound_12500Hz_0_5
-    if (t >= 2 && sound_12500Hz_0_5.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 4.385 && sound_12500Hz_0_5.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       sound_12500Hz_0_5.tStart = t;  // (not accounting for frame time here)
       sound_12500Hz_0_5.frameNStart = frameN;  // exact frame index
@@ -9215,7 +9374,7 @@ function audio_12500Hz_0_5RoutineEachFrame() {
     }
     
     // *res_12500Hz_0_5* updates
-    if (t >= 2 && res_12500Hz_0_5.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 4.385 && res_12500Hz_0_5.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_12500Hz_0_5.tStart = t;  // (not accounting for frame time here)
       res_12500Hz_0_5.frameNStart = frameN;  // exact frame index
@@ -9337,7 +9496,7 @@ function audio_12500Hz_0_75RoutineEachFrame() {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     // start/stop sound_12500Hz_0_75
-    if (t >= 2 && sound_12500Hz_0_75.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.723 && sound_12500Hz_0_75.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       sound_12500Hz_0_75.tStart = t;  // (not accounting for frame time here)
       sound_12500Hz_0_75.frameNStart = frameN;  // exact frame index
@@ -9351,7 +9510,7 @@ function audio_12500Hz_0_75RoutineEachFrame() {
     }
     
     // *res_12500Hz_0_75* updates
-    if (t >= 2 && res_12500Hz_0_75.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 2.723 && res_12500Hz_0_75.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_12500Hz_0_75.tStart = t;  // (not accounting for frame time here)
       res_12500Hz_0_75.frameNStart = frameN;  // exact frame index
@@ -9473,7 +9632,7 @@ function audio_12500HzRoutineEachFrame() {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     // start/stop sound_12500
-    if (t >= 2 && sound_12500.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 1.438 && sound_12500.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       sound_12500.tStart = t;  // (not accounting for frame time here)
       sound_12500.frameNStart = frameN;  // exact frame index
@@ -9487,7 +9646,7 @@ function audio_12500HzRoutineEachFrame() {
     }
     
     // *res_12500* updates
-    if (t >= 2 && res_12500.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 1.438 && res_12500.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       res_12500.tStart = t;  // (not accounting for frame time here)
       res_12500.frameNStart = frameN;  // exact frame index
